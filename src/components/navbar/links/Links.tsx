@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import NavLink from "./navLink/NavLink";
 
 const Links = () => {
@@ -22,6 +24,7 @@ const Links = () => {
 
   const isAdmin = false;
   const session = false;
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -35,6 +38,21 @@ const Links = () => {
         </>
       ) : (
         <NavLink item={{ title: "Login", path: "/login" }} />
+      )}
+
+      <button
+        onClick={() => {
+          setOpen((pre) => !pre);
+        }}
+      >
+        Menu
+      </button>
+      {open && (
+        <div>
+          {links.map((item) => (
+            <NavLink item={item} key={item.title} />
+          ))}
+        </div>
       )}
     </div>
   );
