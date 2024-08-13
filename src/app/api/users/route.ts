@@ -1,6 +1,6 @@
 // pages/api/users.js
 import { NextApiRequest, NextApiResponse } from "next";
-import { createConnection } from "../../lib/db";
+import { createConnection } from "@/lib/db";
 
 export async function GET(
   req: NextApiRequest
