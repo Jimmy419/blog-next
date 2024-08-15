@@ -1,8 +1,14 @@
-const RegisterPage = () => {
+import styles from "./register.module.css";
+import RegisterForm from "@/components/registerForm/registerForm";
 
-    return (
-        <div>Register page</div>
-    )
-}
+const RegisterPage = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <RegisterForm/>
+      </div>
+    </div>
+  );
+};
 
 export default RegisterPage;

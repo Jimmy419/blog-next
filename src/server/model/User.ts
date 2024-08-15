@@ -26,6 +26,10 @@ const User = seq.define(
     email: {
       type: DataTypes.STRING,
     },
+
+    image: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,
