@@ -97,6 +97,7 @@ import bcrypt from "bcryptjs";
 // };
 
 export const register = async (previousState:FormData, formData:FormData) => {
+  console.log('formdata******',formData)
   const { username, email, password, img, passwordRepeat } =
     Object.fromEntries(formData);
 

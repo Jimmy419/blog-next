@@ -1,8 +1,10 @@
-import seq from "../schema";
+import User from "../model/User";
+// import seq from "../schema";
 
 export const syncDb = async () => {
   try {
-    await seq.sync();
+    await User.sync();
+    // await seq.sync({ force: true });
     console.log("模型创建成功！");
   } catch (error) {
     console.error("模型创建失败：", error);
