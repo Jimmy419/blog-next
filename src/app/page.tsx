@@ -4,7 +4,7 @@ import { syncDb } from "@/server/actions/dbSync.actions";
 import { getUsers } from "@/server/actions/user.actions";
 
 export default async function Home() {
-  // await syncDb();
+  await syncDb();
   // const posts = await getUsers();
   // console.log('posts',posts)
   // const [users, setUsers] = useState([]);
