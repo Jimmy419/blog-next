@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.AUTH_SECRET,
+  session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
