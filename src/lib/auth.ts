@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.AUTH_SECRET,
-  session: { strategy: "jwt" },
+  // session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
@@ -17,6 +17,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       //   password: {},
       // },
       authorize: async (credentials) => {
+        console.log('credentials',credentials)
         try {
           // connectToDb();
           const user = await User.findOne({
@@ -27,7 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           console.log("bcrypt.compare*****************", bcrypt.compare);
           const isPasswordCorrect = await bcrypt.compare(
             credentials?.password as string,
-            user.password
+            user.getDataValue("password")
           );
 
           if (!isPasswordCorrect) throw new Error("Wrong credentials!");
@@ -40,6 +41,45 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      console.log("session, token********045",session, token)
+      // if (session && token.sub) {
+      //   session.user.id = token.sub
+      // }
+      // if (session.user && token.role) {
+      //   session.user.role = token.role as string
+      // }
+      // if (session.user) {
+      //   session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean
+      //   session.user.name = token.name
+      //   session.user.email = token.email as string
+      //   session.user.isOAuth = token.isOAuth as boolean
+      //   session.user.image = token.image as string
+      // }
+      return session
+    },
+    async jwt({ token }) {
+      console.log("session, token********062", token)
+      if (!token.sub) return token
+      const existingUser = await User.findOne({
+        where: {id:token.sub}
+      })
+      // console.log('existingUser',existingUser)
+      if (!existingUser) return token
+      // // const existingAccount = await db.query.accounts.findFirst({
+      // //   where: eq(accounts.userId, existingUser.id),
+      // // })
+      console.log('existingUser',existingUser,existingUser.getDataValue("username"))
+      // // token.isOAuth = !!existingAccount
+      token.name = existingUser.getDataValue("username");
+      // token.email = existingUser.email
+      // token.role = existingUser.role
+      // token.isTwoFactorEnabled = existingUser.twoFactorEnabled
+      token.image = existingUser.getDataValue("image")
+      return token
+    },
+  },
 });
 
 // import NextAuth from "next-auth";

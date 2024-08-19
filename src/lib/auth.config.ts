@@ -6,6 +6,7 @@ export const authConfig = {
   callbacks: {
     // FOR MORE DETAIL ABOUT CALLBACK FUNCTIONS CHECK https://next-auth.js.org/configuration/callbacks
     async jwt({ token, user }:any) {
+      console.log("token,user0009",token,user)
       if (user) {
         token.id = user.id;
         token.isAdmin = user.isAdmin;
@@ -13,6 +14,7 @@ export const authConfig = {
       return token;
     },
     async session({ session, token }:any) {
+      console.log("token,user0017",token,session)
       if (token) {
         session.user.id = token.id;
         session.user.isAdmin = token.isAdmin;
@@ -20,6 +22,7 @@ export const authConfig = {
       return session;
     },
     authorized({ auth, request }:any) {
+      console.log("token,user0025",auth,request)
       const user = auth?.user;
       const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
       const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");

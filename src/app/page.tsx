@@ -1,10 +1,13 @@
 // import Image from "next/image";
 
+import { auth } from "@/lib/auth";
 import { syncDb } from "@/server/actions/dbSync.actions";
 import { getUsers } from "@/server/actions/user.actions";
 
 export default async function Home() {
-  await syncDb();
+  const session = await auth();
+  console.log("session*******009",session);
+  // await syncDb();
   // const posts = await getUsers();
   // console.log('posts',posts)
   // const [users, setUsers] = useState([]);
