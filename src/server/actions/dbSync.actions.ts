@@ -1,9 +1,11 @@
+import Blog from "../model/Blog";
 import User from "../model/User";
 // import seq from "../schema";
 
 export const syncDb = async () => {
   try {
     await User.sync();
+    await Blog.sync();
     // await seq.sync({ force: true });
     console.log("模型创建成功！");
   } catch (error) {

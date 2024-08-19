@@ -17,7 +17,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       //   password: {},
       // },
       authorize: async (credentials) => {
-        console.log('credentials',credentials)
+        console.log('credentials',JSON.stringify(credentials));
         try {
           // connectToDb();
           const user = await User.findOne({
@@ -43,7 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     async session({ session, token }) {
-      console.log("session, token********045",session, token)
+      console.log("session, token********045",JSON.stringify(session), JSON.stringify(token))
       // if (session && token.sub) {
       //   session.user.id = token.sub
       // }
@@ -60,7 +60,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return session
     },
     async jwt({ token }) {
-      console.log("session, token********062", token)
+      console.log("session, token********062", JSON.stringify(token))
       if (!token.sub) return token
       const existingUser = await User.findOne({
         where: {id:token.sub}
