@@ -6,6 +6,7 @@ import User from "@/server/model/User";
 // import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
+import { AuthError } from "next-auth";
 
 // export const addPost = async (prevState, formData) => {
 //   // const title = formData.get("title");
@@ -95,8 +96,10 @@ export const handleLogout = async () => {
   await signOut();
 };
 
-export const register = async (previousState:FormData, formData:FormData) => {
-  console.log('formdata******',formData)
+export const register = async (
+  previousState: { error?: string; success?: boolean } | undefined,
+  formData: FormData
+) => {
   const { username, email, password, img, passwordRepeat } =
     Object.fromEntries(formData);
 
@@ -107,14 +110,14 @@ export const register = async (previousState:FormData, formData:FormData) => {
   try {
     // connectToDb();
 
-    const user = await User.findOne({where:{ username }});
+    const user = await User.findOne({ where: { username } });
 
     if (user) {
       return { error: "Username already exists" };
     }
-    console.log("bcrypt",bcrypt.genSalt)
+
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password as string, salt);
 
     await User.create({
       username,
@@ -131,17 +134,24 @@ export const register = async (previousState:FormData, formData:FormData) => {
   }
 };
 
-export const login = async (prevState:FormData, formData:FormData) => {
+export const login = async (
+  prevState: string | undefined,
+  formData: FormData
+) => {
   const { username, password } = Object.fromEntries(formData);
 
   try {
-    await signIn("credentials", { username, password, redirectTo: "/", });
-    return { success: "User Signed In!" }
-  } catch (err:any) {
+    await signIn("credentials", { username, password });
+    return "User Signed In!";
+  } catch (err: any) {
     console.log(err);
 
-    if (err.message.includes("CredentialsSignin")) {
-      return { error: "Invalid username or password" };
+    if (err instanceof AuthError) {
+      if (err.type === "CredentialsSignin") {
+        return "Invalid username or password";
+      } else {
+        return "Something went wrong";
+      }
     }
     throw err;
   }

@@ -1,12 +1,12 @@
 "use client";
 import { FC, useState } from "react";
 import NavLink from "./navLink/NavLink";
-import { SessionType } from "@/types/auth.type";
 import { handleLogout } from "@/lib/action";
+import { Session } from "next-auth";
 // import { auth } from "@/lib/auth";
 
 interface LinksProps {
-  session: SessionType;
+  session: Session | null;
 }
 
 const Links: FC<LinksProps> = ({ session }) => {
