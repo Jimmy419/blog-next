@@ -5,12 +5,11 @@ import { SessionType } from "@/types/auth.type";
 import { handleLogout } from "@/lib/action";
 // import { auth } from "@/lib/auth";
 
-
-interface LinksProps{
+interface LinksProps {
   session: SessionType;
 }
 
-const Links:FC<LinksProps> = async ({session}) => {
+const Links: FC<LinksProps> = ({ session }) => {
   // const authResult = await auth();
   // console.log("authResult", authResult);
   const links = [
@@ -45,8 +44,8 @@ const Links:FC<LinksProps> = async ({session}) => {
         <>
           {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
           <form action={handleLogout}>
-              <button>Logout</button>
-            </form>
+            <button>Logout</button>
+          </form>
         </>
       ) : (
         <NavLink item={{ title: "Login", path: "/login" }} />
