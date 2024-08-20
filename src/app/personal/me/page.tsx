@@ -1,7 +1,11 @@
+import MdEditorKit from "@/components/mdEditorKit/MdEditorKit";
+
 export default function MePage () {
 
 
     return (
-        <div>this is me page</div>
+        <div>
+            <MdEditorKit/>
+        </div>
     )
 }
