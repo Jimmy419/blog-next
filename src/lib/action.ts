@@ -91,10 +91,9 @@ import bcrypt from "bcrypt";
 //   await signIn("github");
 // };
 
-// export const handleLogout = async () => {
-//   "use server";
-//   await signOut();
-// };
+export const handleLogout = async () => {
+  await signOut();
+};
 
 export const register = async (previousState:FormData, formData:FormData) => {
   console.log('formdata******',formData)

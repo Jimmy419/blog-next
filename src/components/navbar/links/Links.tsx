@@ -1,8 +1,18 @@
 "use client";
-import { useState } from "react";
+import { FC, useState } from "react";
 import NavLink from "./navLink/NavLink";
+import { SessionType } from "@/types/auth.type";
+import { handleLogout } from "@/lib/action";
+// import { auth } from "@/lib/auth";
 
-const Links = () => {
+
+interface LinksProps{
+  session: SessionType;
+}
+
+const Links:FC<LinksProps> = async ({session}) => {
+  // const authResult = await auth();
+  // console.log("authResult", authResult);
   const links = [
     {
       title: "home",
@@ -23,7 +33,7 @@ const Links = () => {
   ];
 
   const isAdmin = false;
-  const session = false;
+  // const session = false;
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,7 +44,9 @@ const Links = () => {
       {session ? (
         <>
           {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-          <button>Logout</button>
+          <form action={handleLogout}>
+              <button>Logout</button>
+            </form>
         </>
       ) : (
         <NavLink item={{ title: "Login", path: "/login" }} />
