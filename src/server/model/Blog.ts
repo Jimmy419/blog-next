@@ -11,13 +11,18 @@ const Blog = seq.define(
       allowNull: false,
     },
 
+    tag: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     content: {
       type: DataTypes.TEXT, // TEXT 可存储大文件
       allowNull: false,
     },
 
     author: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
 

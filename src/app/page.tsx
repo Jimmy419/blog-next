@@ -6,7 +6,6 @@ import { getUsers } from "@/server/actions/user.actions";
 
 export default async function Home() {
   const session = await auth();
-  console.log("session*******009",session);
   // await syncDb();
   // const posts = await getUsers();
   // console.log('posts',posts)

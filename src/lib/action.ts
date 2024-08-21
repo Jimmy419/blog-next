@@ -125,11 +125,11 @@ export const register = async (
       password: hashedPassword,
       img,
     });
-    console.log("saved to db");
+    // console.log("saved to db");
 
     return { success: true };
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     return { error: "Something went wrong!" };
   }
 };
@@ -144,7 +144,7 @@ export const login = async (
     await signIn("credentials", { username, password });
     return "User Signed In!";
   } catch (err: any) {
-    console.log(err);
+    // console.log(err);
 
     if (err instanceof AuthError) {
       if (err.type === "CredentialsSignin") {

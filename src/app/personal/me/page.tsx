@@ -1,11 +1,5 @@
-import MdEditorKit from "@/components/mdEditorKit/MdEditorKit";
+import BlogEditForm from "@/components/blogEditForm/BlogEditForm";
 
-export default function MePage () {
-
-
-    return (
-        <div>
-            <MdEditorKit/>
-        </div>
-    )
+export default function MePage() {
+  return <BlogEditForm />;
 }

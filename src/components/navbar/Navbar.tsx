@@ -3,7 +3,7 @@ import Links from "./links/Links";
 
 const Navbar = async () => {
   const session = await auth();
-  console.log("session*******009",session);
+  // console.log("session*******009",session);
 
   return (
     <div>

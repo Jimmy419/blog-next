@@ -20,7 +20,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       //   password: {},
       // },
       async authorize(credentials){
-        console.log("credentials", JSON.stringify(credentials));
+        // console.log("credentials", JSON.stringify(credentials));
 
         const parsedCredentials = z
           .object({
