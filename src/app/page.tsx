@@ -1,11 +1,15 @@
 // import Image from "next/image";
 
+import { getBlogList } from "@/actions/blog.action";
 import { auth } from "@/lib/auth";
 import { syncDb } from "@/server/actions/dbSync.actions";
 import { getUsers } from "@/server/actions/user.actions";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await auth();
+  const list = await getBlogList();
+  console.log("list***", list);
   // await syncDb();
   // const posts = await getUsers();
   // console.log('posts',posts)
@@ -23,7 +27,13 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      hello world
+      <div>
+        {list.map((item) => (
+          <div key={item.id}>
+            <Link href={`/blog/${item.id}`}>{item.title}</Link>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }

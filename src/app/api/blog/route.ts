@@ -35,3 +35,9 @@ export const POST = async (request: NextRequest) => {
     status: 500,
   });
 };
+
+export const GET = async (request: NextRequest) => {
+  const dataList = await Blog.findAll();
+
+  return new Response(JSON.stringify(dataList),{status:200})
+}
