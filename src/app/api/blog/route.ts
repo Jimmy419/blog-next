@@ -36,7 +36,8 @@ export const POST = async (request: NextRequest) => {
   });
 };
 
-export const GET = async () => {
-  // const blogList = await Blog.
+export const GET = async (request: NextRequest) => {
+  const dataList = await Blog.findAll();
 
+  return new Response(JSON.stringify(dataList),{status:200})
 }
