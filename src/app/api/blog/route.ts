@@ -19,7 +19,6 @@ export const POST = async (request: NextRequest) => {
         status: 500,
       });
   }
-  console.log('data from db',dataFromDb)
   const dataToSave = {
     ...dataReceived,
     author: Number(session?.user?.id),
@@ -32,7 +31,6 @@ export const POST = async (request: NextRequest) => {
       author: z.number().min(1),
     })
     .safeParse(dataToSave);
-  console.log("parsedCredentials******", parsedCredentials);
   if (parsedCredentials && parsedCredentials.data) {
     try {
       if (dataFromDb) {
