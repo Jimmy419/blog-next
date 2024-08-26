@@ -1,3 +1,4 @@
+import { auth } from "@/lib/auth";
 import Blog from "@/server/model/Blog";
 
 export const getBlogList = async () => {
@@ -11,3 +12,14 @@ export const getBlogById = async (id: number) => {
   });
   return blogObj?.dataValues;
 };
+
+export const getMyBlogList = async () => {
+  const session = await auth();
+  const author = Number(session?.user?.id);
+  const blogList = await Blog.findAll({
+    where:{
+      author
+    }
+  })
+  return blogList.map(item=>item.dataValues);
+}

@@ -43,6 +43,7 @@ const Links: FC<LinksProps> = ({ session }) => {
       {session ? (
         <>
           {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+          <NavLink item={{ title: "我的", path: "/personal/me" }} />
           <form action={handleLogout}>
             <button>Logout</button>
           </form>

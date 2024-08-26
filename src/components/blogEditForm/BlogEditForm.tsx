@@ -3,22 +3,25 @@ import { FC } from "react";
 import React, { useState } from "react";
 import { MdEditor } from "md-editor-rt";
 import "md-editor-rt/lib/style.css";
+import { BlogType } from "@/types";
 
-interface BlogEditFormProps {}
+interface BlogEditFormProps {
+  blogIpt?: BlogType;
+}
 
-const BlogEditForm: FC<BlogEditFormProps> = () => {
-  const [content, setContent] = useState("# Hello Editor");
-  const [title, setTitle] = useState("");
-  const [tag, setTag] = useState("");
+const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt }) => {
+  const [content, setContent] = useState(blogIpt?.content || "");
+  const [title, setTitle] = useState(blogIpt?.title || "");
+  const [tag, setTag] = useState(blogIpt?.tag || "");
 
   const submitForm = () => {
-    console.log(content, title, tag);
     fetch("/api/blog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        ...(blogIpt ? blogIpt : {}),
         content,
         title,
         tag,

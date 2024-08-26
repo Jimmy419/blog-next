@@ -5,13 +5,10 @@ import { createConnection } from "@/lib/db";
 export async function GET(
   req: NextApiRequest
 ) {
-  console.log("req", req);
   const connection = await createConnection();
 
   try {
     const [rows] = await connection.execute("SELECT * FROM auth");
-    console.log(rows);
-    console.log("*******************************")
     // res.status(200).json(rows);
     return new Response(JSON.stringify(rows), {
       status: 200,
@@ -22,7 +19,6 @@ export async function GET(
       status: 500,
     });
   } finally {
-    console.log('shahahah')
     await connection.end();
   }
 }

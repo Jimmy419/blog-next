@@ -9,7 +9,6 @@ import Link from "next/link";
 export default async function Home() {
   const session = await auth();
   const list = await getBlogList();
-  console.log("list***", list);
   // await syncDb();
   // const posts = await getUsers();
   // console.log('posts',posts)
