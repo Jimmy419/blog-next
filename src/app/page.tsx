@@ -25,7 +25,7 @@ export default async function Home() {
   // }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-[calc(100vh-100px)] flex-col items-center justify-between p-24">
       <div>
         {list.map((item) => (
           <div key={item.id}>
