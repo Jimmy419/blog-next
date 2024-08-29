@@ -6,7 +6,7 @@ const Navbar = async () => {
   // console.log("session*******009",session);
 
   return (
-    <div>
+    <div className="flex justify-between p-3 bg-lime-500">
       <div>Logo</div>
       <div>
         <Links session={session} />

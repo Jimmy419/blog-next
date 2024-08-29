@@ -30,6 +30,11 @@ const User = seq.define(
     image: {
       type: DataTypes.STRING,
     },
+
+    roles: {
+      type: DataTypes.STRING,
+      defaultValue: "5",
+    },
   },
   {
     freezeTableName: true,

@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import NavLink from "./navLink/NavLink";
 import { handleLogout } from "@/lib/action";
 import { Session } from "next-auth";
+import Image from "next/image";
 // import { auth } from "@/lib/auth";
 
 interface LinksProps {
@@ -37,30 +38,33 @@ const Links: FC<LinksProps> = ({ session }) => {
 
   return (
     <div>
-      {links.map((item) => (
-        <NavLink item={item} key={item.title} />
-      ))}
-      {session ? (
-        <>
-          {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-          <NavLink item={{ title: "我的", path: "/personal/me" }} />
-          <form action={handleLogout}>
-            <button>Logout</button>
-          </form>
-        </>
-      ) : (
-        <NavLink item={{ title: "Login", path: "/login" }} />
-      )}
+      <div className="md:flex items-center hidden">
+        {links.map((item) => (
+          <NavLink item={item} key={item.title} />
+        ))}
+        {session ? (
+          <>
+            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+            <NavLink item={{ title: "我的", path: "/personal/me" }} />
+            <form action={handleLogout}>
+              <button className="">Logout</button>
+            </form>
+          </>
+        ) : (
+          <NavLink item={{ title: "Login", path: "/login" }} />
+        )}
+      </div>
 
-      <button
-        onClick={() => {
-          setOpen((pre) => !pre);
-        }}
-      >
-        Menu
-      </button>
+      <Image
+        src="/menu.png"
+        className="cursor-pointer block md:hidden"
+        alt=""
+        width={30}
+        height={30}
+        onClick={() => setOpen((prev) => !prev)}
+      />
       {open && (
-        <div>
+        <div className="flex md:hidden flex-col fixed top-[100px] right-0 w-1/2 h-[calc(100vh-100px)] bg-[var(--bg)] items-center justify-center gap-2.5">
           {links.map((item) => (
             <NavLink item={item} key={item.title} />
           ))}

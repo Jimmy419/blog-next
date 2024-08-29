@@ -4,6 +4,7 @@ import { getBlogList } from "@/actions/blog.action";
 import { auth } from "@/lib/auth";
 import { syncDb } from "@/server/actions/dbSync.actions";
 import { getUsers } from "@/server/actions/user.actions";
+import { Camera } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
@@ -26,7 +27,8 @@ export default async function Home() {
   // }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-[calc(100vh-100px)] flex-col items-center justify-between p-24">
+      <Camera color="red" size={48} />;
       <div>
         {list.map((item) => (
           <div key={item.id}>
