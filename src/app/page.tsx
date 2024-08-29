@@ -7,9 +7,10 @@ import { getUsers } from "@/server/actions/user.actions";
 import Link from "next/link";
 
 export default async function Home() {
+  // await syncDb();
   const session = await auth();
   const list = await getBlogList();
-  // await syncDb();
+  
   // const posts = await getUsers();
   // console.log('posts',posts)
   // const [users, setUsers] = useState([]);

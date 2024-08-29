@@ -17,9 +17,9 @@ if (env === "development") {
   // console.log('develop environment')
   // mysql
   MYSQL_CONF = {
-    host: "localhost",
-    user: "root",
-    password: "11111111",
+    host: "101.132.62.152",
+    user: "jimmy",
+    password: "Jimmy#152",
     port: "3306",
     database: "blog",
     database_seq: "blog",
