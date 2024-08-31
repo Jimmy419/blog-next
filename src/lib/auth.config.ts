@@ -1,4 +1,6 @@
+import { SessionType, TokenType, UserType } from "@/types";
 import { NextAuthConfig } from "next-auth";
+import { NextRequest } from "next/server";
 
 export const authConfig = {
   pages: {
@@ -8,22 +10,25 @@ export const authConfig = {
   callbacks: {
     // FOR MORE DETAIL ABOUT CALLBACK FUNCTIONS CHECK https://next-auth.js.org/configuration/callbacks
     async jwt({ token, user }) {
-      // console.log("token,user0009",token,user)
+      console.log("token,user0009", token, user);
       //这个地方只有在登录的时候才会有user，其他情况下都是undefined
       if (user) {
-        token.id = user.id;
-        token.username = user.username;
-        token.email=user.email;
+        token.id = `${user.id}`;
+        // token.username = user.username;
+        token.email = user.email;
         token.image = user.image;
-        token.realname=user.realname;
+        // token.realname = user.realname;
       }
       return token;
     },
-    async session({ session, token }) {
-      // console.log("token,user0017",token,session)
+    async session({
+      session,
+      token,
+    }) {
+      console.log("token,user0017", token, session);
       if (token) {
-        session.user.id = token.id;
-        session.user.username = token.username;
+        session.user.id = token.id as string;
+        // session.user.username = token.username;
       }
       return session;
     },
@@ -32,8 +37,8 @@ export const authConfig = {
       // const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
       const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");
       const isOnLoginPage = request.nextUrl?.pathname.startsWith("/login");
-      const isOnPersonalPage = request.nextUrl?.pathname.startsWith("/personal");
-
+      const isOnPersonalPage =
+        request.nextUrl?.pathname.startsWith("/personal");
 
       // ONLY ADMIN CAN REACH THE ADMIN DASHBOARD
 
@@ -47,7 +52,7 @@ export const authConfig = {
         return false;
       }
 
-      if(isOnPersonalPage && !user){
+      if (isOnPersonalPage && !user) {
         return false;
       }
 
@@ -60,4 +65,4 @@ export const authConfig = {
       return true;
     },
   },
-} as NextAuthConfig;
+} satisfies NextAuthConfig;
