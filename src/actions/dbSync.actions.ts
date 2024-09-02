@@ -1,5 +1,5 @@
-import Blog from "../model/Blog";
-import User from "../model/User";
+import Blog from "../db/model/Blog";
+import User from "../db/model/User";
 // import seq from "../schema";
 
 export const syncDb = async () => {

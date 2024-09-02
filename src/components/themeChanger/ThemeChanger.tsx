@@ -1,5 +1,5 @@
 "use client";
-import { themeList } from "@/constants/themeList";
+import { themeList } from "@/constants";
 import { Select, SelectItem } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useState } from "react";

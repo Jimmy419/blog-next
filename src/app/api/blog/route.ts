@@ -1,15 +1,11 @@
 import { getBlogById } from "@/actions/blog.action";
 import { auth } from "@/lib/auth";
-import Blog from "@/server/model/Blog";
-import { BlogType } from "@/types";
+import Blog from "@/db/model/Blog";
 import { NextRequest } from "next/server";
 import { z } from "zod";
 
 export const POST = async (request: NextRequest) => {
   const session = await auth();
-  //   console.log("session", session);
-  //   console.log(request);
-  //   console.log("******req body******");
   const dataReceived = await request.json();
   let dataFromDb = undefined;
   if (dataReceived.id) {
@@ -57,6 +53,5 @@ export const POST = async (request: NextRequest) => {
 
 export const GET = async (request: NextRequest) => {
   const dataList = await Blog.findAll();
-
   return new Response(JSON.stringify(dataList), { status: 200 });
 };

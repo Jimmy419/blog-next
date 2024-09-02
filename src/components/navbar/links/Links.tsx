@@ -1,9 +1,11 @@
 "use client";
 import { FC, useState } from "react";
 import NavLink from "./navLink/NavLink";
-import { handleLogout } from "@/lib/action";
+
 import { Session } from "next-auth";
 import Image from "next/image";
+import { handleLogout } from "@/actions/auth.action";
+
 // import { auth } from "@/lib/auth";
 
 interface LinksProps {

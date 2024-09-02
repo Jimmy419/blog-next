@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import Blog from "@/server/model/Blog";
+import Blog from "@/db/model/Blog";
 
 export const getBlogList = async () => {
   const dataList = await Blog.findAll();

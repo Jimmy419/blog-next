@@ -1,6 +1,5 @@
 import { getBlogById } from "@/actions/blog.action";
 import BlogShow from "@/components/blogShow/BlogShow";
-import { MdPreview } from "md-editor-rt";
 
 const SinglePostPage = async ({
   params: { slug },

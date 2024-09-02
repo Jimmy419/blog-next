@@ -1,6 +1,4 @@
-import { SessionType, TokenType, UserType } from "@/types";
 import { NextAuthConfig } from "next-auth";
-import { NextRequest } from "next/server";
 
 export const authConfig = {
   pages: {
@@ -21,10 +19,7 @@ export const authConfig = {
       }
       return token;
     },
-    async session({
-      session,
-      token,
-    }) {
+    async session({ session, token }) {
       console.log("token,user0017", token, session);
       if (token) {
         session.user.id = token.id as string;
