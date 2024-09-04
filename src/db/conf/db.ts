@@ -18,8 +18,8 @@ if (env === "development") {
   // mysql
   MYSQL_CONF = {
     host: "101.132.62.152",
-    user: "jimmy",
-    password: "Jimmy#152",
+    user: "root",
+    password: "123456",
     port: "3306",
     database: "blog",
     database_seq: "blog",
@@ -36,8 +36,8 @@ if (env === "production") {
   // mysql
   MYSQL_CONF = {
     host: "101.132.62.152",
-    user: "jimmy",
-    password: "Jimmy#152",
+    user: "root",
+    password: "123456",
     port: "3306",
     database: "blog",
     database_seq: "blog",
