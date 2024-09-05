@@ -23,7 +23,7 @@ RUN npm install pm2 -g
 EXPOSE 3000
 
 # 使用 PM2 启动 Next.js 应用
-CMD ["pm2-runtime", "start", "npm", "--", "start"]
+# CMD ["pm2-runtime", "start", "npm", "--", "start"]
 
-# # 使用 PM2 和 pm2.config.js 启动 Next.js 应用
-# CMD ["pm2-runtime", "pm2.config.js"]
+# 使用 PM2 和 pm2.config.js 启动 Next.js 应用
+CMD ["pm2-runtime", "start", "pm2.config.js"]
