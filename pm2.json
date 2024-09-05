@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "app-name",
+      "script": "node_modules/next/dist/bin/next",
+      "args": "start",
+      "cwd": "./",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "error_file": "./logs/err.log",
+      "out_file": "./logs/out.log"
+    }
+  ]
+}

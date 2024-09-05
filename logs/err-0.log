@@ -1,0 +1,1120 @@
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.local Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.local'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env.production Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env.production'[39m
+}
+ [31m[1m⨯[22m[39m Failed to load env from .env Error: ENOTDIR: not a directory, stat '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'
+[90m    at Object.statSync (node:fs:1676:25)[39m
+    at loadEnvConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4m@next[24m/env/dist/index.js:1:9602[90m)[39m
+    at loadConfig [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/config.ts:951:16[90m)[39m
+    at initialize [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/router-server.ts:81:34[90m)[39m
+    at getRequestHandlers [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:66:20[90m)[39m
+    at Server.<anonymous> [90m(/Users/jimmy/Documents/jimmy/personal-projects/blog-next/[39mnode_modules/[4mnext[24m/src/server/lib/start-server.ts:293:34[90m)[39m
+[90m    at Server.emit (node:events:526:35)[39m
+    at Server.<anonymous> (/Users/jimmy/.nvm/versions/node/v20.10.0/lib/node_modules/[4mpm2[24m/node_modules/[4m@pm2[24m/io/src/metrics/httpMetrics.ts:167:50)
+[90m    at emitListeningNT (node:net:1906:10)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:81:21)[39m {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.env'[39m
+}
+[Error: ENOTDIR: not a directory, open '/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'] {
+  errno: [33m-20[39m,
+  code: [32m'ENOTDIR'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/Users/jimmy/Documents/jimmy/personal-projects/blog-next/pm2.config.js/.next/BUILD_ID'[39m
+}

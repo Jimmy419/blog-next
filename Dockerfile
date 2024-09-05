@@ -26,4 +26,5 @@ EXPOSE 3000
 # CMD ["pm2-runtime", "start", "npm", "--", "start"]
 
 # 使用 PM2 和 pm2.config.js 启动 Next.js 应用
-CMD ["pm2-runtime", "start", "pm2.config.js"]
+CMD ["sh", "-c", "npx pm2 list && npx pm2-runtime start pm2.json"]
+

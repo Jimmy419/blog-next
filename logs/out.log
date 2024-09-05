@@ -1,0 +1,205 @@
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 229ms
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 147ms
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.122Z'
+}
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.491Z'
+}
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.730Z'
+}
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.730Z'
+}
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.730Z'
+}
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725546335,
+  exp: 1728138335,
+  jti: 'c1b092ba-8c96-49fa-bbba-e5b5ef32824c'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.731Z'
+}
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user' AND TABLE_SCHEMA = 'blog'
+Executing (default): SHOW INDEX FROM `user`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'blogs' AND TABLE_SCHEMA = 'blog'
+Executing (default): SHOW INDEX FROM `blogs`
+模型创建成功！
+token,user0009 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} undefined
+token,user0017 {
+  email: 'suifeng419@126.com',
+  picture: null,
+  sub: '1',
+  id: '1',
+  username: 'jimmy',
+  image: null,
+  realname: null,
+  iat: 1725090391,
+  exp: 1727682391,
+  jti: '73b358f0-2e54-4b9a-9f9f-5c87d88176f6'
+} {
+  user: { name: undefined, email: 'suifeng419@126.com', image: null },
+  expires: '2024-10-05T14:25:35.854Z'
+}
+Executing (default): SELECT `id`, `title`, `tag`, `content`, `author`, `createdAt`, `updatedAt` FROM `blogs` AS `blog`;
