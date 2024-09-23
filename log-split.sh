@@ -1,10 +1,27 @@
 #!/bin/bash
 
+# 检查是否传入了路径参数
+if [ -z "$1" ]; then
+  echo "请传入日志文件夹路径作为参数"
+  exit 1
+fi
+
+# 获取传入的日志目录路径并切换到该目录
+target_dir="$1"
+
+# 检查日志目录是否存在
+if [ ! -d "$target_dir" ]; then
+  echo "目标路径不存在: $target_dir"
+  exit 1
+fi
+
+cd "$target_dir" || exit
+
 # 获取当前日期，格式为 YYYY-MM-DD
 current_date=$(date +%Y-%m-%d)
 
 # 日志文件夹路径
-log_dir="./logs"
+log_dir="$(pwd)/logs"
 
 # 遍历错误日志文件 (err-*.log)
 for err_log in "$log_dir"/err-*.log; do
