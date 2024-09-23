@@ -3,7 +3,6 @@ import Blog from "@/db/model/Blog";
 
 export const getBlogList = async () => {
   const dataList = await Blog.findAll();
-  throw new Error('this is error')
   return dataList.map((item) => item.dataValues);
 };
 
