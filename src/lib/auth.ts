@@ -32,7 +32,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const user = await User.findOne({
             where: { username },
           });
-          console.log("user777777", user);
           if (!user) return null;
 
           const isPasswordCorrect = await bcrypt.compare(

@@ -6,15 +6,11 @@ import { Session } from "next-auth";
 import Image from "next/image";
 import { handleLogout } from "@/actions/auth.action";
 
-// import { auth } from "@/lib/auth";
-
 interface LinksProps {
   session: Session | null;
 }
 
 const Links: FC<LinksProps> = ({ session }) => {
-  // const authResult = await auth();
-  // console.log("authResult", authResult);
   const links = [
     {
       title: "home",

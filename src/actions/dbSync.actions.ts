@@ -7,7 +7,7 @@ export const syncDb = async () => {
     await User.sync();
     await Blog.sync();
     // await seq.sync({ force: true });
-    console.log("模型创建成功！");
+    console.info("模型创建成功！");
   } catch (error) {
     console.error("模型创建失败：", error);
   } 

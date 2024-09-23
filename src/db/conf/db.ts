@@ -14,7 +14,6 @@ let MYSQL_CONF: DbConfigType;
 let REDIS_CONF;
 
 if (env === "development") {
-  // console.log('develop environment')
   // mysql
   MYSQL_CONF = {
     host: "101.132.62.152",

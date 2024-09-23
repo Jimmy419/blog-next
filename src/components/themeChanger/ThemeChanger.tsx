@@ -18,7 +18,7 @@ const ThemeChanger = () => {
       label="Select a theme"
       className="max-w-xs"
       onChange={(e) => {
-        console.log("🚀 ~ ThemeChanger ~ e:", e);
+        console.info("🚀 ~ ThemeChanger ~ e:", e);
         setTheme(e.target.value);
       }}
       defaultSelectedKeys={[theme as string]}
