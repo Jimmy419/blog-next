@@ -5,8 +5,8 @@ import { Camera } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
-  await syncDb();
-  const session = await auth();
+  // await syncDb();
+  // const session = await auth();
   const list = await getBlogList();
 
   return (

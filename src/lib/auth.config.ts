@@ -8,7 +8,7 @@ export const authConfig = {
   callbacks: {
     // FOR MORE DETAIL ABOUT CALLBACK FUNCTIONS CHECK https://next-auth.js.org/configuration/callbacks
     async jwt({ token, user }) {
-      console.log("token,user0009", token, user);
+      console.error("token,user0009", token, user);
       //这个地方只有在登录的时候才会有user，其他情况下都是undefined
       if (user) {
         token.id = `${user.id}`;
@@ -20,7 +20,7 @@ export const authConfig = {
       return token;
     },
     async session({ session, token }) {
-      console.log("token,user0017", token, session);
+      console.info("token,user0017", token, session);
       if (token) {
         session.user.id = token.id as string;
         // session.user.username = token.username;
@@ -28,6 +28,7 @@ export const authConfig = {
       return session;
     },
     authorized({ auth, request }) {
+      console.log(request);
       const user = auth?.user;
       // const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
       const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");

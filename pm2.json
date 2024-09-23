@@ -1,14 +1,15 @@
 {
   "apps": [
     {
-      "name": "app-name",
+      "name": "blog-next",
       "script": "node_modules/next/dist/bin/next",
       "args": "start",
       "cwd": "./",
-      "instances": "max",
+      "instances": 2,
       "exec_mode": "cluster",
       "error_file": "./logs/err.log",
-      "out_file": "./logs/out.log"
+      "out_file": "./logs/out.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss"
     }
   ]
 }

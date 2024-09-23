@@ -11,7 +11,6 @@ export const getUsers = async () => {
     });
     return list;
   } catch (err) {
-    console.log(err);
     throw new Error("Failed to fetch posts!");
   }
 };

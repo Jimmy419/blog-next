@@ -29,7 +29,6 @@ export const register = async (
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password as string, salt);
-    console.log("🚀 ~ hashedPassword:", hashedPassword);
 
     await User.create({
       username,
@@ -40,7 +39,7 @@ export const register = async (
 
     return { success: true };
   } catch (err) {
-    console.log("🚀 ~ err:", err);
+    console.error("🚀 ~ err:", err);
     return { error: "Something went wrong!" };
   }
 };
