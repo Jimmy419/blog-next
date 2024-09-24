@@ -1,0 +1,72 @@
+# Sample workflow for building and deploying a Next.js site to GitHub Pages
+#
+# To get started with Next.js see: https://nextjs.org/docs/getting-started
+#
+name: Deploy Next.js site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install SSH Client
+      run: sudo apt-get install -y sshpass
+
+    - name: Deploy to Remote Server
+      env:
+        SSH_HOST: ${{ secrets.SSH_HOST }}
+        SSH_USER: ${{ secrets.SSH_USER }}
+        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        DB_HOST_IP: ${{ secrets.DB_HOST_IP }}
+        DB_USER_NAME: ${{ secrets.DB_USER_NAME }}
+        DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
+        AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+      run: |
+        # 使用 SSH 连接到远程服务器
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'EOF'
+          cd /root/projects/blog-next || git clone git@github.com:Jimmy419/blog-next.git /root/projects/blog-next
+          cd /root/projects/blog-next
+          
+          # Pull 最新代码
+          git pull origin main
+
+          # 切换node版本
+          nvm use v20.15.1
+          
+          # 安装依赖
+          npm install
+          
+          # 配置环境变量
+          echo "DB_HOST_IP=$DB_HOST_IP" > .env
+          echo "DB_USER_NAME=$DB_USER_NAME" >> .env
+          echo "DB_USER_PASS=$DB_USER_PASS" >> .env
+          echo "AUTH_SECRET=$AUTH_SECRET" >> .env
+
+          # 构建并启动服务
+          npm run build:prod
+
+        EOF
