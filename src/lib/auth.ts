@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 // Your own logic for dealing with plaintext password strings; be careful!
 // import { saltAndHashPassword } from "@/utils/password";
 import User from "@/db/model/User";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import { authConfig } from "./auth.config";
 import { z } from "zod";
 
@@ -38,6 +38,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             password,
             user.getDataValue("password")
           );
+          console.log("🚀 ~ authorize ~ isPasswordCorrect:", isPasswordCorrect)
+          
 
           if (isPasswordCorrect) return user.dataValues;
         }

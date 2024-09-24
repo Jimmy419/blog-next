@@ -1,7 +1,7 @@
 "use server";
 
 import User from "@/db/model/User";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import { AuthError } from "next-auth";
 import { signIn, signOut } from "../lib/auth";
 

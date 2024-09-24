@@ -52,6 +52,8 @@ jobs:
           cd /root/projects/blog-next
           
           # Pull 最新代码
+          pwd
+          ls
           git pull origin main
 
           # 切换node版本
