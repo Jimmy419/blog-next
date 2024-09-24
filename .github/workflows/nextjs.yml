@@ -52,12 +52,10 @@ jobs:
           cd /root/projects/blog-next
           
           # Pull 最新代码
-          pwd
-          ls
           git pull origin master
 
           # 切换node版本
-          nvm use v20.15.1
+          nvm use v21.6.2
           
           # 安装依赖
           npm install
