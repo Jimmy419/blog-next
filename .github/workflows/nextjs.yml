@@ -47,7 +47,7 @@ jobs:
         AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
       run: |
         # 使用 SSH 连接到远程服务器
-        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'EOF'
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << EOF
           cd /root/projects/blog-next || git clone git@github.com:Jimmy419/blog-next.git /root/projects/blog-next
           cd /root/projects/blog-next
           
