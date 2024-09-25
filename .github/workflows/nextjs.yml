@@ -43,6 +43,9 @@ jobs:
     - name: Build Project
       run: npm run build
 
+    - name: Checkout build result
+      run: ls -a
+
     - name: Upload .next folder as artifact
       uses: actions/upload-artifact@v3
       with:
