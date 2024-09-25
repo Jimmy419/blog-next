@@ -43,8 +43,10 @@ jobs:
     - name: Build Project
       run: npm run build
 
-    - name: Checkout build result
-      run: ls -a
+    - name: List Files
+      run: |
+        echo "Listing files in the project directory:"
+        ls -R .  # 递归列出当前目录下的所有文件和文件夹
 
     - name: Upload .next folder as artifact
       uses: actions/upload-artifact@v3
