@@ -43,16 +43,17 @@ jobs:
     - name: Build Project
       run: npm run build
 
-    - name: List Files
+    - name: List .next folder contents
       run: |
-        echo "Listing files in the project directory:"
-        ls -a .  # 递归列出当前目录下的所有文件和文件夹
+        echo "Checking .next folder contents:"
+        ls -al .next  # 列出 .next 文件夹的内容
+        ls -al .next/*  # 列出 .next 文件夹下一层的文件
 
     - name: Upload .next folder as artifact
       uses: actions/upload-artifact@v3
       with:
         name: next-build
-        path: .next
+        path: ./.next
 
   deploy:
     runs-on: ubuntu-latest
