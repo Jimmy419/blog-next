@@ -3,7 +3,7 @@
     {
       "name": "blog-next",
       "script": "node_modules/next/dist/bin/next",
-      "args": "start",
+      "args": "start -p 3000",
       "cwd": "./",
       "instances": 1,
       "exec_mode": "cluster",
