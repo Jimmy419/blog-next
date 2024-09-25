@@ -12,52 +12,88 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+# # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Project
+      run: npm run build
+
+    - name: Upload .next folder as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: next-build
+        path: .next
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    env:  # 在这里定义环境变量，所有步骤都可以使用
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      DB_HOST_IP: ${{ secrets.DB_HOST_IP }}
+      DB_USER_NAME: ${{ secrets.DB_USER_NAME }}
+      DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
+      AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Download .next artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: next-build
+
     - name: Install SSH Client
       run: sudo apt-get install -y sshpass
 
-    - name: Deploy to Remote Server
-      env:
-        SSH_HOST: ${{ secrets.SSH_HOST }}
-        SSH_USER: ${{ secrets.SSH_USER }}
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        DB_HOST_IP: ${{ secrets.DB_HOST_IP }}
-        DB_USER_NAME: ${{ secrets.DB_USER_NAME }}
-        DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
-        AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+    - name: Remove existing .next folder on server
       run: |
-        # 使用 SSH 连接到远程服务器
-        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << EOF
-          cd /root/projects/blog-next || git clone git@github.com:Jimmy419/blog-next.git /root/projects/blog-next
-          cd /root/projects/blog-next
-          
-          # Pull 最新代码
-          git pull origin master
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "rm -rf /root/projects/blog-next/.next"
 
-          # 切换node版本
+    - name: Transfer .next to Remote Server
+      run: |
+        sshpass -p $SSH_PASSWORD scp -o StrictHostKeyChecking=no -r .next $SSH_USER@$SSH_HOST:/root/projects/blog-next/.next
+
+    - name: Deploy to Remote Server
+      run: |
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << EOF
+          if [ ! -d "/root/projects/blog-next" ]; then
+            git clone git@github.com:Jimmy419/blog-next.git /root/projects/blog-next
+          fi
+
+          cd /root/projects/blog-next
+
+          git pull origin main
+
           nvm use v21.6.2
-          
-          # 安装依赖
+
           npm install
           
           # 配置环境变量
@@ -66,7 +102,6 @@ jobs:
           echo "DB_USER_PASS=$DB_USER_PASS" >> .env
           echo "AUTH_SECRET=$AUTH_SECRET" >> .env
 
-          # 构建并启动服务
-          npm run build:prod
-
+          # 使用 pm2 启动服务
+          pm2 start pm2.json
         EOF
