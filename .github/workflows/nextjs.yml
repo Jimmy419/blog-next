@@ -46,8 +46,20 @@ jobs:
     - name: List .next folder contents
       run: |
         echo "Checking .next folder contents:"
-        ls -al .next  # 列出 .next 文件夹的内容
+        ls -l  # 列出 .next 文件夹的内容
+        echo "*********************"
         ls -al .next/*  # 列出 .next 文件夹下一层的文件
+
+    - name: Debug .next folder before upload
+      run: |
+        echo "Checking if .next exists before upload:"
+        if [ -d ".next" ]; then
+          echo ".next folder exists."
+          ls -l .next  # 列出 .next 文件夹的内容
+        else
+          echo ".next folder does not exist."
+        fi
+
 
     - name: Upload .next folder as artifact
       uses: actions/upload-artifact@v3
