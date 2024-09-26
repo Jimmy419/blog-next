@@ -53,7 +53,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: next-build
-        path: ./.next
+        path: .next
 
   deploy:
     runs-on: ubuntu-latest
@@ -75,6 +75,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: next-build
+        path: .next
 
     - name: Install SSH Client
       run: sudo apt-get install -y sshpass
