@@ -8,13 +8,15 @@ const SinglePostPage = async ({
 }) => {
   const blogObj = await getBlogById(Number(slug));
 
-  return (
+  return blogObj ? (
     <div>
       <div>{blogObj.title}</div>
       <div>
         <BlogShow content={blogObj.content} />
       </div>
     </div>
+  ) : (
+    <div>loading...</div>
   );
 };
 

@@ -3,10 +3,10 @@ import { FC } from "react";
 import React, { useState } from "react";
 import { MdEditor } from "md-editor-rt";
 import "md-editor-rt/lib/style.css";
-import { BlogType } from "@/types";
+import { Blog } from "@prisma/client";
 
 interface BlogEditFormProps {
-  blogIpt?: BlogType;
+  blogIpt?: Blog;
 }
 
 const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt }) => {

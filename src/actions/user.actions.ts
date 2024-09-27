@@ -1,14 +1,9 @@
-import User from "../db/model/User";
+import prisma from "@/db";
 
 export const getUsers = async () => {
   try {
     // await User.sync();
-    const list = await User.findAll({
-      // where: whereOpt,
-      // order: [
-      //     ['id', 'desc'] // 排序
-      // ]
-    });
+    const list = await prisma.user.findMany({});
     return list;
   } catch (err) {
     throw new Error("Failed to fetch posts!");

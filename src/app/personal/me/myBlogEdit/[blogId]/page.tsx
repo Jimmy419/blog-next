@@ -9,5 +9,9 @@ export default async function MyBlogEditPage({
   const blogInfor =
     blogId != "0" ? await getBlogById(Number(blogId)) : undefined;
 
-  return <BlogEditForm blogIpt={blogInfor} />;
+  return blogInfor ? (
+    <BlogEditForm blogIpt={blogInfor} />
+  ) : (
+    <div>loading...</div>
+  );
 }

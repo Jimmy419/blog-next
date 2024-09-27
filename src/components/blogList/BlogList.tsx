@@ -1,9 +1,9 @@
-import { BlogType } from "@/types";
+import { Blog } from "@prisma/client";
 import Link from "next/link";
 import { FC } from "react";
 
 interface BlogListProps {
-  blogList: BlogType[];
+  blogList: Blog[];
 }
 
 const BlogList: FC<BlogListProps> = ({ blogList }) => {
