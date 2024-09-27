@@ -107,7 +107,7 @@ jobs:
 
           cd /root/projects/blog-next
 
-          git pull origin main
+          git pull origin master
 
           nvm use v21.6.2
 
