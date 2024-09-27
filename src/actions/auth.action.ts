@@ -1,7 +1,7 @@
 "use server";
 
-import User from "@/db/model/User";
-import bcrypt from 'bcryptjs';
+import prisma from "@/db";
+import bcrypt from "bcryptjs";
 import { AuthError } from "next-auth";
 import { signIn, signOut } from "../lib/auth";
 
@@ -21,7 +21,9 @@ export const register = async (
   }
 
   try {
-    const user = await User.findOne({ where: { username } });
+    const user = await prisma.user.findFirst({
+      where: { username: username as string },
+    });
 
     if (user) {
       return { error: "Username already exists" };
@@ -30,11 +32,13 @@ export const register = async (
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password as string, salt);
 
-    await User.create({
-      username,
-      email,
-      password: hashedPassword,
-      img,
+    await prisma.user.create({
+      data: {
+        username: username as string,
+        email: email as string,
+        password: hashedPassword,
+        image: img as string,
+      },
     });
 
     return { success: true };

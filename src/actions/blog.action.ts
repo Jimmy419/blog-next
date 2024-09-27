@@ -1,25 +1,25 @@
+import prisma from "@/db";
 import { auth } from "@/lib/auth";
-import Blog from "@/db/model/Blog";
 
 export const getBlogList = async () => {
-  const dataList = await Blog.findAll();
-  return dataList.map((item) => item.dataValues);
+  const dataList = await prisma.blog.findMany();
+  return dataList;
 };
 
 export const getBlogById = async (id: number) => {
-  const blogObj = await Blog.findOne({
+  const blogObj = await prisma.blog.findUnique({
     where: { id },
   });
-  return blogObj?.dataValues;
+  return blogObj;
 };
 
 export const getMyBlogList = async () => {
   const session = await auth();
   const author = Number(session?.user?.id);
-  const blogList = await Blog.findAll({
-    where:{
-      author
-    }
-  })
-  return blogList.map(item=>item.dataValues);
-}
+  const blogList = await prisma.blog.findMany({
+    where: {
+      author,
+    },
+  });
+  return blogList;
+};

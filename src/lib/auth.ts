@@ -1,11 +1,11 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 // Your own logic for dealing with plaintext password strings; be careful!
 // import { saltAndHashPassword } from "@/utils/password";
-import User from "@/db/model/User";
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 import { authConfig } from "./auth.config";
 import { z } from "zod";
+import prisma from "@/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
@@ -29,19 +29,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (parsedCredentials.success) {
           const { username, password } = parsedCredentials.data;
-          const user = await User.findOne({
+          const user = await prisma.user.findFirst({
             where: { username },
           });
           if (!user) return null;
 
           const isPasswordCorrect = await bcrypt.compare(
             password,
-            user.getDataValue("password")
+            user.password
           );
-          console.log("🚀 ~ authorize ~ isPasswordCorrect:", isPasswordCorrect)
-          
+          console.log("🚀 ~ authorize ~ isPasswordCorrect:", isPasswordCorrect);
 
-          if (isPasswordCorrect) return user.dataValues;
+          if (isPasswordCorrect) {
+            // 只返回非敏感信息，构建符合 NextAuth 的 User 类型
+            const safeUser: User = {
+              id: user.id.toString(), // NextAuth 中的 id 是字符串类型
+              name: user.username,
+              email: user.email,
+              image: user.image,
+            };
+            return safeUser;
+          }
         }
 
         return null;

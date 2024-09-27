@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  realname  String?
+  image     String?
+  roles     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id        Int      @id @default(autoincrement()) // 自动自增的主键
+  title     String // 非空字符串
+  tag       String // 非空字符串
+  content   String // 大文本，在 Prisma 中，String 会自动处理较大的文本
+  author    Int // 关联用户的 ID
+  createdAt DateTime @default(now()) // 自动生成创建时间
+  updatedAt DateTime @updatedAt // 自动更新更新时间
+}
