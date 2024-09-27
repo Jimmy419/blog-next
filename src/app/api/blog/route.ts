@@ -1,6 +1,6 @@
 import { getBlogById } from "@/actions/blog.action";
+import prisma from "@/db";
 import { auth } from "@/lib/auth";
-import Blog from "@/db/model/Blog";
 import { NextRequest } from "next/server";
 import { z } from "zod";
 
@@ -30,13 +30,13 @@ export const POST = async (request: NextRequest) => {
   if (parsedCredentials && parsedCredentials.data) {
     try {
       if (dataFromDb) {
-        await Blog.update(parsedCredentials.data, {
+        await prisma.blog.update({data:parsedCredentials.data,
           where: {
             id: dataFromDb.id,
           },
         });
       } else {
-        await Blog.create(parsedCredentials.data);
+        await prisma.blog.create({data:parsedCredentials.data});
       }
 
       return new Response("ok", { status: 200 });
@@ -52,6 +52,6 @@ export const POST = async (request: NextRequest) => {
 };
 
 export const GET = async (request: NextRequest) => {
-  const dataList = await Blog.findAll();
+  const dataList = await prisma.blog.findMany();
   return new Response(JSON.stringify(dataList), { status: 200 });
 };
