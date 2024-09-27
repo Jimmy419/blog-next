@@ -1,11 +1,9 @@
 import { getBlogList } from "@/actions/blog.action";
-import { syncDb } from "@/actions/dbSync.actions";
 import { auth } from "@/lib/auth";
 import { Camera } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
-  // await syncDb();
   // const session = await auth();
   const list = await getBlogList();
 
