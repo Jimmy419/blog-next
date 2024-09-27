@@ -75,10 +75,7 @@ jobs:
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-      DB_HOST_IP: ${{ secrets.DB_HOST_IP }}
-      DB_USER_NAME: ${{ secrets.DB_USER_NAME }}
-      DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
-      AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
     - name: Checkout Code
@@ -117,10 +114,7 @@ jobs:
           npm install
           
           # 配置环境变量
-          echo "DB_HOST_IP=$DB_HOST_IP" > .env
-          echo "DB_USER_NAME=$DB_USER_NAME" >> .env
-          echo "DB_USER_PASS=$DB_USER_PASS" >> .env
-          echo "AUTH_SECRET=$AUTH_SECRET" >> .env
+          echo "DATABASE_URL=$DATABASE_URL" > .env
 
           # 使用 pm2 启动服务
           pm2 start pm2.json
