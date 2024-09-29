@@ -116,6 +116,9 @@ jobs:
           # 配置环境变量
           echo "DATABASE_URL=$DATABASE_URL" > .env
 
+          # 同步prisma并生成@prisma/client
+          npx prisma generate
+
           # 使用 pm2 启动服务
           pm2 start pm2.json
         EOF
