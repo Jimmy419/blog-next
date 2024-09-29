@@ -11,7 +11,8 @@
     "test": "pm2-runtime start npm -- start",
     "test2": "npx pm2 list && pm2-runtime start pm2.json",
     "test3": "npx pm2 list && pm2-runtime start pm2.config.js",
-    "dbpush": "npx prisma db push"
+    "dbpush": "npx prisma db push",
+    "prismag": "npx prisma generate"
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.6",
