@@ -92,7 +92,7 @@ jobs:
 
     - name: Remove existing .next folder on server
       run: |
-        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "pm2 del blog-next && rm -rf /root/projects/blog-next/.next"
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "/root/.nvm/versions/node/v20.15.1/bin/pm2 del blog-next && rm -rf /root/projects/blog-next/.next"
 
     - name: Transfer .next to Remote Server
       run: |
