@@ -40,7 +40,7 @@ const Links: FC<LinksProps> = ({ session }) => {
         {links.map((item) => (
           <NavLink item={item} key={item.title} />
         ))}
-        {session ? (
+        {session && session.user && session.user.id ? (
           <>
             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
             <NavLink item={{ title: "我的", path: "/personal/me" }} />
