@@ -1,11 +1,11 @@
-import NextAuth, { User } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 // Your own logic for dealing with plaintext password strings; be careful!
 // import { saltAndHashPassword } from "@/utils/password";
-import bcrypt from "bcryptjs";
-import { authConfig } from "./auth.config";
-import { z } from "zod";
 import prisma from "@/db";
+import bcrypt from "bcryptjs";
+import { z } from "zod";
+import { authConfig } from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
@@ -42,12 +42,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           if (isPasswordCorrect) {
             // 只返回非敏感信息，构建符合 NextAuth 的 User 类型
-            const safeUser: User = {
+            const safeUser = {
               id: user.id.toString(), // NextAuth 中的 id 是字符串类型
               name: user.username,
               email: user.email,
               image: user.image,
+              roles: user.roles || "",
             };
+            console.log("🚀 ~ authorize ~ safeUser:", safeUser);
+
             return safeUser;
           }
         }

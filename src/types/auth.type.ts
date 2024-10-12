@@ -1,10 +1,11 @@
 export interface UserType {
-  id: number;
+  id: string;
   username: string;
   password?: string;
   realname?: string;
   email?: string;
   image?: string;
+  roles?: string;
 }
 
 export interface SessionType {

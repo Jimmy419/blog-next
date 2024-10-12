@@ -4,15 +4,19 @@ import React, { useState } from "react";
 import { MdEditor } from "md-editor-rt";
 import "md-editor-rt/lib/style.css";
 import { Blog } from "@prisma/client";
+import { Session } from "next-auth";
+import { Random } from "mockjs";
 
 interface BlogEditFormProps {
-  blogIpt?: Blog;
+  blogIpt?: Blog | null;
+  session: Session | null;
 }
 
-const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt }) => {
+const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt, session }) => {
   const [content, setContent] = useState(blogIpt?.content || "");
   const [title, setTitle] = useState(blogIpt?.title || "");
   const [tag, setTag] = useState(blogIpt?.tag || "");
+  console.log("session", session);
 
   const submitForm = () => {
     fetch("/api/blog", {
@@ -25,6 +29,22 @@ const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt }) => {
         content,
         title,
         tag,
+      }),
+    }).then((data) => {
+      console.log("data", data);
+    });
+  };
+
+  const mockBlog = () => {
+    fetch("/api/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: Random.string(10,2000),
+        title: Random.string(10,20),
+        tag: Random.string(0,10),
       }),
     }).then((data) => {
       console.log("data", data);
@@ -61,6 +81,9 @@ const BlogEditForm: FC<BlogEditFormProps> = ({ blogIpt }) => {
       />
       <div>
         <button onClick={submitForm}>提交</button>
+        {session?.user.roles && session?.user.roles.includes("1") && (
+          <button onClick={mockBlog}>Mock Data</button>
+        )}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { SessionType, UserType } from "@/types";
 import { NextAuthConfig } from "next-auth";
 
 export const authConfig = {
@@ -12,7 +13,7 @@ export const authConfig = {
       //这个地方只有在登录的时候才会有user，其他情况下都是undefined
       if (user) {
         token.id = `${user.id}`;
-        // token.username = user.username;
+        token.roles = user.roles;
         token.email = user.email;
         token.image = user.image;
         // token.realname = user.realname;
@@ -23,7 +24,7 @@ export const authConfig = {
       console.info("token,user0017", token, session);
       if (token) {
         session.user.id = token.id as string;
-        // session.user.username = token.username;
+        session.user.roles = token.roles as string;
       }
       return session;
     },
