@@ -5,6 +5,8 @@ import NavLink from "./navLink/NavLink";
 import { Session } from "next-auth";
 import Image from "next/image";
 import { handleLogout } from "@/actions/auth.action";
+import { title } from "process";
+import path from "path";
 
 interface LinksProps {
   session: Session | null;
@@ -28,6 +30,10 @@ const Links: FC<LinksProps> = ({ session }) => {
       title: "Blog",
       path: "/blog",
     },
+    {
+      title: "JTool",
+      path: "/jtool",
+    }
   ];
 
   const isAdmin = false;

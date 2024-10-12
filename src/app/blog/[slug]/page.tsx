@@ -7,6 +7,8 @@ const SinglePostPage = async ({
   params: { slug: string };
 }) => {
   const blogObj = await getBlogById(Number(slug));
+  console.log("🚀 ~ blogObj:", blogObj)
+  
 
   return blogObj ? (
     <div>
