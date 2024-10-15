@@ -70,9 +70,8 @@ const Calculator = async () => {
           <code>number</code>: 两个数的和
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[0]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[0]} />
 
         <h3 id="accMinus" className="text-xl font-semibold mb-2">
           accMinus
@@ -92,9 +91,8 @@ const Calculator = async () => {
           <code>number</code>: 两个数的差
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[1]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[1]} />
 
         <h3 id="accMultiply" className="text-xl font-semibold mb-2">
           accMultiply
@@ -114,9 +112,8 @@ const Calculator = async () => {
           <code>number</code>: 两个数的积
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[2]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[2]} />
 
         <h3 id="accDivide" className="text-xl font-semibold mb-2">
           accDivide
@@ -136,9 +133,8 @@ const Calculator = async () => {
           <code>number</code>: 两个数的商
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[3]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[3]} />
 
         <h2 className="text-2xl font-semibold mb-2">错误处理</h2>
         <p className="mb-4">

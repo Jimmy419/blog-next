@@ -74,9 +74,8 @@ const Formatter = async () => {
           <code>string</code>: 格式化后的货币字符串
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[0]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[0]} />
 
         <h3 id="dateFormater" className="text-xl font-semibold mb-2">
           dateFormater
@@ -98,9 +97,8 @@ const Formatter = async () => {
           <code>string</code>: 格式化后的日期字符串
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[1]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[1]} />
 
         <h3 id="mobileFormater" className="text-xl font-semibold mb-2">
           mobileFormater
@@ -120,9 +118,8 @@ const Formatter = async () => {
           格式化后的手机号码字符串，如果输入为空则返回 null
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[2]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[2]} />
 
         <h3 id="nameFormater" className="text-xl font-semibold mb-2">
           nameFormater
@@ -142,9 +139,8 @@ const Formatter = async () => {
           null
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[3]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[3]} />
 
         <h2 className="text-2xl font-semibold mb-2">错误处理</h2>
         <p className="mb-4">

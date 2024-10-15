@@ -66,9 +66,8 @@ const Validator = async () => {
           ，否则返回 <code>false</code>
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[0]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[0]} />
 
         <h3 id="emailValidator" className="text-xl font-semibold mb-2">
           emailValidator
@@ -86,9 +85,8 @@ const Validator = async () => {
           ，否则返回 <code>false</code>
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[1]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[1]} />
 
         <h3 id="idNoZhValidator" className="text-xl font-semibold mb-2">
           idNoZhValidator
@@ -108,9 +106,8 @@ const Validator = async () => {
           ，否则返回 <code>false</code>
         </p>
         <h4 className="text-lg font-semibold mb-1">示例</h4>
-        <pre className="bg-gray-200 p-2 rounded mb-4">
-          <CopyCode code={codeSnippets[2]} />
-        </pre>
+
+        <CopyCode code={codeSnippets[2]} />
 
         <h2 className="text-2xl font-semibold mb-2">正则表达式</h2>
         <p className="mb-4">该模块使用以下正则表达式进行验证：</p>
