@@ -1,0 +1,123 @@
+/* AI总结助手打开的对话窗口顶部标题栏样式设置 */
+:root {
+  --webchat-toolbar-background-color: #fff;
+  --webchat-toolbar-text-color: #333;
+}
+/* AI总结助手打开的对话窗口如果被遮挡或需调整显示位置，可以尝试调整以下 z-index、bottom、right等属性 */
+.webchat-container {
+  z-index: 100;
+  bottom: 10px;
+  right: 10px;
+}
+/* AI总结助手的唤起图标如果被遮挡或需调整显示位置，可以尝试调整以下 z-index、bottom、right等属性 */
+.webchat-bubble-tip {
+  z-index: 99;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* AI 对话框顶部渐变色 */
+.webchat-container-toolbar {
+  border-bottom: none !important;
+  &::before {
+    content: "";
+    border-style: solid;
+    border-width: 5px 0 0;
+    border-image: linear-gradient(270deg, #eb8698, #1366ec) 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.summarize-ai-chat {
+  /* 调整内容区域高度 */
+  .nlux-launchPad-container,
+  .nlux-conversation-container {
+    height: calc(100% - 120px) !important;
+  }
+  /* 底部消息框布局调整 */
+  .nlux-composer-container {
+    box-sizing: content-box;
+    width: unset !important;
+    padding: 6px 16px 16px;
+    border-top: none !important;
+    & > div {
+      border: 1px solid #dee0e5;
+      border-radius: 2px;
+    }
+  }
+  /* 消息列表布局调整-list展示调整 */
+  .nlux-comp-chatItem.nlux-comp-chatItem--listLayout {
+    flex-direction: row !important;
+    .nlux-comp-chatItem-participantName {
+      display: none;
+    }
+    .nlux-comp-message.nlux_msg_sent,
+    .nlux-comp-message.nlux_msg_received {
+      margin-left: 0 !important;
+    }
+  }
+  .nlux-comp-chatItem.nlux-comp-chatItem--sent.nlux-comp-chatItem--listLayout {
+    margin-bottom: 1.5em;
+    .nlux-comp-message.nlux_msg_sent {
+      background-color: #e5effe;
+      justify-content: center;
+      padding: 10px;
+      flex: unset !important;
+    }
+  }
+  /* 页面总结按钮 */
+  .webChat-footer-extra {
+    height: 30px;
+    padding-left: 16px;
+    .webChat-footer-extra-button {
+      display: inline-block;
+      padding: 4px;
+      font-size: 12px;
+      border: 1px solid #dee0e5;
+      border-radius: 2px;
+      background-color: #fff;
+    }
+    .webChat-footer-extra-button:hover {
+      cursor: pointer;
+      background: linear-gradient(
+        61deg,
+        rgba(229, 239, 254, 0.5) -24%,
+        rgba(238, 235, 255, 0.5) 127%
+      );
+    }
+    .webChat-footer-extra-button[disabled] {
+      background-color: #ececec;
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+  /* 发送按钮样式 */
+  /* .nlux-comp-sendIcon {
+    max-width: 28px !important;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 2px;
+    background-color: #1366ec;
+  }
+  .nlux-comp-composer
+    > button
+    > .nlux-comp-sendIcon
+    > .nlux-comp-sendIcon-container {
+    mask: unset !important;
+    background-color: unset;
+    background-image: url("https://img.alicdn.com/imgextra/i3/O1CN01ZGAB0T1u6YYQ2sR8b_!!6000000005988-55-tps-13-13.svg");
+    background-size: 12px;
+    background-position: center;
+  }
+  .nlux-comp-composer > button[disabled] > .nlux-comp-sendIcon {
+    opacity: 0.4;
+  } */
+}
+/* 终止按钮 */
+.summarize-stop-button {
+  bottom: 18px !important;
+  right: 16px !important;
+}

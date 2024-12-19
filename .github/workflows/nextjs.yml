@@ -76,6 +76,8 @@ jobs:
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      BAILIAN_APP_ID: ${{ secrets.BAILIAN_APP_ID }}
+      BAILIAN_API_KEY: ${{ secrets.BAILIAN_API_KEY }}
 
     steps:
     - name: Checkout Code
@@ -115,6 +117,8 @@ jobs:
           
           # 配置环境变量
           echo "DATABASE_URL=$DATABASE_URL" > .env
+          echo "BAILIAN_APP_ID=$BAILIAN_APP_ID" >> .env
+          echo "BAILIAN_API_KEY=$BAILIAN_API_KEY" >> .env
 
           # 同步prisma并生成@prisma/client
           npx prisma generate
