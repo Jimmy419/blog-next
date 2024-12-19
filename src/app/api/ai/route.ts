@@ -1,7 +1,3 @@
-// import prisma from "@/db";
-// import { auth } from "@/lib/auth";
-// import { z } from "zod";
-// const bodyParser = require('body-parser');
 import { NextRequest, NextResponse } from "next/server";
 import https from "https";
 
@@ -69,7 +65,7 @@ export const POST = async (req: NextRequest) => {
       // Write and end the external request
       externalReq.write(postData);
       externalReq.end();
-    });
+    }) as Promise<NextResponse>;
   } catch (error) {
     console.error("Error processing the request:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
