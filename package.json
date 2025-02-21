@@ -17,11 +17,20 @@
     "prepush": "npm run lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^2.8.1",
+    "@langchain/community": "^0.0.19",
+    "@langchain/openai": "^0.0.12",
     "@nextui-org/react": "^2.4.6",
     "@prisma/client": "^5.20.0",
     "bcryptjs": "^2.4.3",
+    "dompurify": "^3.2.4",
+    "emojisplosion": "^4.0.0",
     "framer-motion": "^11.3.31",
+    "highlight.js": "^11.8.0",
+    "langchain": "^0.1.4",
     "lucide-react": "^0.436.0",
+    "marked": "^15.0.7",
     "md-editor-rt": "^4.19.1",
     "mockjs": "^1.1.0",
     "mysql2": "^3.11.0",
@@ -31,6 +40,7 @@
     "prisma": "^5.20.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-toastify": "^11.0.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

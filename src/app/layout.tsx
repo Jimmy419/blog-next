@@ -26,7 +26,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class">
             <Navbar />
             {children}
-            <Ai />
+            {/* <Ai /> */}
             <Footer />
           </ThemeProvider>
         </Providers>
