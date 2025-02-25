@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import https from "https";
 
+
 export const POST = async (req: NextRequest) => {
   try {
     const { prompt, sessionId = null } = await req.json();
@@ -71,6 +72,8 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 };
+
+
 
 
 

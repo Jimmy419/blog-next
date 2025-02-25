@@ -50,6 +50,8 @@ export function ChatWindow(props: {
   const [chatHistory, setChatHistory] = useState<[string, string][]>([]);
 
   const { apiBaseUrl, titleText } = props;
+
+  const [messageIndex, setMessageIndex] = useState<number | null>(null);
   /**
    * version 1
    * @param message
@@ -152,11 +154,12 @@ export function ChatWindow(props: {
           accumulatedMessage = streamedResponse.streamed_output.join("");
         }
         const parsedResult = marked.parse(accumulatedMessage);
-
+        console.log("🚀 ~ forawait ~ parsedResult:", parsedResult)
+        
         setMessages((prevMessages) => {
           let newMessages = [...prevMessages];
           if (messageIndex === null) {
-            messageIndex = newMessages.length;
+            setMessageIndex(newMessages.length); // 更新 messageIndex
             newMessages.push({
               id: Math.random().toString(),
               content: parsedResult.trim(),
@@ -179,7 +182,6 @@ export function ChatWindow(props: {
       ]);
       setIsLoading(false);
     } catch (e: any) {
-      // setMessages((prevMessages) => prevMessages.slice(0, -1));
       setMessages((prevMessages) => [
         ...prevMessages.slice(0, -1),
         {
@@ -273,23 +275,8 @@ export function ChatWindow(props: {
         <div className="text-white flex flex-wrap items-center mt-4">
           <div className="flex items-center mb-2">
             <span className="shrink-0 mr-2">Powered by</span>
-            {/* <Select
-              value={retriever}
-              onChange={(e) => {
-                insertUrlParam("retriever", e.target.value);
-                setRetriever(e.target.value as RetrieverName);
-              }}
-              width={"212px"}
-            >
-              <option value="tavily">Tavily</option>
-              <option value="kay">Kay.ai SEC Filings</option>
-              <option value="kay_press_release">Kay.ai Press Releases</option>
-              <option value="you">You.com</option>
-              <option value="google">Google</option>
-            </Select> */}
           </div>
           <div className="flex items-center mb-2">
-            {/* <span className="shrink-0 ml-2 mr-2">and</span> */}
             <Select
               value={llm}
               onChange={(e) => {
@@ -392,30 +379,6 @@ export function ChatWindow(props: {
             })}
           </div>
         </div>
-      ) : (
-        ""
-      )}
-
-      {messages.length === 0 ? (
-        <footer className="flex justify-center absolute bottom-8">
-          <a
-            href="https://github.com/langchain-ai/weblangchain"
-            target="_blank"
-            className="text-white flex items-center"
-          >
-            <img src="/images/github-mark.svg" className="h-4 mr-1" />
-            <span>View Source</span>
-          </a>
-          <a
-            href={`${
-              process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8080"
-            }/chat/playground`}
-            target="_blank"
-            className="text-white flex items-center ml-8"
-          >
-            <span>Open Playground</span>
-          </a>
-        </footer>
       ) : (
         ""
       )}
