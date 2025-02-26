@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { v4 as uuidv4 } from "uuid";
@@ -51,35 +51,72 @@ export function ChatWindow(props: {
 
   const { apiBaseUrl, titleText } = props;
 
-  const [messageIndex, setMessageIndex] = useState<number | null>(null);
+  const [messageDetector, setMessageDetector] = useState<number>(0);
+
+  const parsedResult = useRef<string>("");
+  const runId = useRef<string | undefined>(undefined);
+  const sources = useRef<Source[] | undefined>(undefined);
+  const messageIndex = useRef<number | null>(null);
+  const messageValue = useRef<string>("");
+
+
+  useEffect(() => {
+    if (messageDetector === 1 || messageDetector === 2) {
+      let newMessages = [...messages];
+      if (messageIndex.current === null) {
+        messageIndex.current = newMessages.length;
+        newMessages.push({
+          id: Math.random().toString(),
+          content: parsedResult.current.trim(),
+          runId: runId.current,
+          sources: sources.current,
+          role: "assistant",
+        });
+      } else {
+        newMessages[messageIndex.current].content = parsedResult.current.trim();
+        newMessages[messageIndex.current].runId = runId.current;
+        newMessages[messageIndex.current].sources = sources.current;
+      }
+      setMessages(newMessages);
+      if (messageDetector === 2) {
+        setChatHistory((prevChatHistory) => [
+          ...prevChatHistory,
+          ["human", messageValue.current],
+          ["ai", parsedResult.current],
+        ]);
+      }
+      setMessageDetector(0)
+    }
+  }, [messageDetector]);
+
   /**
    * version 1
    * @param message
    * @returns
    */
   const sendMessage = async (message?: string) => {
-    console.log("sendMessage*********", message);
+    setMessageDetector(0);
     if (messageContainerRef.current) {
       messageContainerRef.current.classList.add("grow");
     }
     if (isLoading) {
       return;
     }
-    const messageValue = message ?? input;
-    if (messageValue === "") return;
+    messageValue.current = message ?? input;
+    if (messageValue.current === "") return;
     setInput("");
     setMessages((prevMessages) => {
       return [
         ...prevMessages,
-        { id: Math.random().toString(), content: messageValue, role: "user" },
+        { id: Math.random().toString(), content: messageValue.current, role: "user" },
       ];
     });
     setIsLoading(true);
 
     let accumulatedMessage = "";
-    let runId: string | undefined = undefined;
-    let sources: Source[] | undefined = undefined;
-    let messageIndex: number | null = null;
+    runId.current = undefined;
+    sources.current = undefined;
+    messageIndex.current = null;
 
     let renderer = new Renderer();
     renderer.paragraph = (text) => {
@@ -112,10 +149,9 @@ export function ChatWindow(props: {
           timeout: 60000,
         },
       });
-      console.log("remoteChain", remoteChain);
       const logStream = await remoteChain.streamLog(
         {
-          question: messageValue,
+          question: messageValue.current,
           chat_history: chatHistory,
         },
         {
@@ -138,7 +174,7 @@ export function ChatWindow(props: {
             streamedResponse?.logs?.[sourceStepName]?.final_output?.documents
           )
         ) {
-          sources = streamedResponse.logs[
+          sources.current = streamedResponse.logs[
             sourceStepName
           ].final_output.documents.map((doc: Record<string, any>) => ({
             url: doc.metadata.source ?? doc.metadata.data_source_link,
@@ -148,38 +184,16 @@ export function ChatWindow(props: {
           }));
         }
         if (streamedResponse.id !== undefined) {
-          runId = streamedResponse.id;
+          runId.current = streamedResponse.id;
         }
-        if (Array.isArray(streamedResponse?.streamed_output)) {
-          accumulatedMessage = streamedResponse.streamed_output.join("");
+        if (streamedResponse?.final_output) {
+          accumulatedMessage = streamedResponse.final_output;
         }
-        const parsedResult = marked.parse(accumulatedMessage);
-        console.log("🚀 ~ forawait ~ parsedResult:", parsedResult)
         
-        setMessages((prevMessages) => {
-          let newMessages = [...prevMessages];
-          if (messageIndex === null) {
-            setMessageIndex(newMessages.length); // 更新 messageIndex
-            newMessages.push({
-              id: Math.random().toString(),
-              content: parsedResult.trim(),
-              runId: runId,
-              sources: sources,
-              role: "assistant",
-            });
-          } else {
-            newMessages[messageIndex].content = parsedResult.trim();
-            newMessages[messageIndex].runId = runId;
-            newMessages[messageIndex].sources = sources;
-          }
-          return newMessages;
-        });
+        parsedResult.current = marked.parse(accumulatedMessage);
+        setMessageDetector(1);
       }
-      setChatHistory((prevChatHistory) => [
-        ...prevChatHistory,
-        ["human", messageValue],
-        ["ai", accumulatedMessage],
-      ]);
+      setMessageDetector(2);
       setIsLoading(false);
     } catch (e: any) {
       setMessages((prevMessages) => [
@@ -191,7 +205,7 @@ export function ChatWindow(props: {
         },
       ]);
       setIsLoading(false);
-      setInput(messageValue);
+      setInput(messageValue.current);
       toast.error(e.message);
     }
   };
@@ -248,7 +262,7 @@ export function ChatWindow(props: {
   return (
     <div
       className={
-        "flex flex-col items-center p-8 rounded grow max-h-full h-full" +
+        "w-screen flex flex-col items-center p-8 rounded grow max-h-[calc(100vh-150px)] h-full" +
         (messages.length === 0 ? " justify-center mb-32" : "")
       }
     >
@@ -270,7 +284,7 @@ export function ChatWindow(props: {
         >
           {messages.length > 0
             ? "We appreciate feedback!"
-            : "Ask me anything about anything!"}
+            : "Ask me anything!"}
         </Heading>
         <div className="text-white flex flex-wrap items-center mt-4">
           <div className="flex items-center mb-2">
@@ -293,7 +307,7 @@ export function ChatWindow(props: {
         </div>
       </div>
       <div
-        className="flex flex-col-reverse w-full mb-2 overflow-auto"
+        className="flex flex-col-reverse w-full mb-2 overflow-auto scrollbar-hide"
         ref={messageContainerRef}
       >
         {messages.length > 0
