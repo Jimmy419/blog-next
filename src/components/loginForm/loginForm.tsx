@@ -1,5 +1,6 @@
 "use client";
 import styles from "./loginForm.module.css";
+// @ts-ignore
 import { useFormState, useFormStatus } from "react-dom";
 import Link from "next/link";
 import { login } from "@/actions/auth.action";

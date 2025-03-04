@@ -1,5 +1,6 @@
 "use client";
 import styles from "./registerForm.module.css";
+// @ts-ignore
 import { useFormState } from "react-dom";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
