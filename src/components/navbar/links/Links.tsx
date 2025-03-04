@@ -30,6 +30,10 @@ const Links: FC<LinksProps> = ({ session }) => {
       title: "Blog",
       path: "/blog",
     },
+    // {
+    //   title: "Robot",
+    //   path: "/robot",
+    // },
     {
       title: "JTool",
       path: "/jtool",
@@ -50,6 +54,7 @@ const Links: FC<LinksProps> = ({ session }) => {
           <>
             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
             <NavLink item={{ title: "我的", path: "/personal/me" }} />
+            <NavLink item={{ title: "Robot", path: "/robot" }} />
             <form action={handleLogout}>
               <button className="">Logout</button>
             </form>
