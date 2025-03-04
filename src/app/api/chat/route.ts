@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       await parseRequestBody(req);
 
     const remoteChain = new RemoteRunnable({
-      url: process.env.BACKEND_URL + "/chat",
+      url: "http://localhost:8080/chat",
       options: {
         timeout: 60000,
       },
