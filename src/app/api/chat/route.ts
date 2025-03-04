@@ -56,9 +56,9 @@ export async function POST(req: Request) {
             await writer.write(
               encoder.encode(JSON.stringify({ content }) + "\n")
             );
-            await writer.write(encoder.encode(JSON.stringify({
-                content: deltaContent // 只发送增量内容
-              }) + "\n"));
+            // await writer.write(encoder.encode(JSON.stringify({
+            //     content: deltaContent // 只发送增量内容
+            //   }) + "\n"));
           }
 
           // 处理来源信息
