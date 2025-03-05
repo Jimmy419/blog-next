@@ -10,6 +10,7 @@ import { authConfig } from "./auth.config";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
   secret: process.env.AUTH_SECRET,
+  // trustHost:false,
   // session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
@@ -20,6 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       //   password: {},
       // },
       async authorize(credentials) {
+        console.log("🚀 ~ authorize ~ credentials:", credentials);
         const parsedCredentials = z
           .object({
             username: z.string(),

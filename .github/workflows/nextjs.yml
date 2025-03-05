@@ -12,52 +12,52 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+  #   steps:
+  #   - name: Checkout Code
+  #     uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+  #   - name: Set up Node.js
+  #     uses: actions/setup-node@v4
+  #     with:
+  #       node-version: '20'
 
-    - name: Install Dependencies
-      run: npm install
+  #   - name: Install Dependencies
+  #     run: npm install
 
-    - name: Build Project
-      run: npm run build
+  #   - name: Build Project
+  #     run: npm run build
 
-    - name: List .next folder contents
-      run: |
-        echo "Checking .next folder contents:"
-        ls -l  # 列出 .next 文件夹的内容
-        echo "*********************"
-        ls -al .next/*  # 列出 .next 文件夹下一层的文件
+  #   - name: List .next folder contents
+  #     run: |
+  #       echo "Checking .next folder contents:"
+  #       ls -l  # 列出 .next 文件夹的内容
+  #       echo "*********************"
+  #       ls -al .next/*  # 列出 .next 文件夹下一层的文件
 
-    - name: Debug .next folder before upload
-      run: |
-        echo "Checking if .next exists before upload:"
-        if [ -d ".next" ]; then
-          echo ".next folder exists."
-          ls -l .next  # 列出 .next 文件夹的内容
-        else
-          echo ".next folder does not exist."
-        fi
+  #   - name: Debug .next folder before upload
+  #     run: |
+  #       echo "Checking if .next exists before upload:"
+  #       if [ -d ".next" ]; then
+  #         echo ".next folder exists."
+  #         ls -l .next  # 列出 .next 文件夹的内容
+  #       else
+  #         echo ".next folder does not exist."
+  #       fi
 
 
-    - name: Upload .next folder as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: next-build
-        path: .next
-        include-hidden-files: true  # 启用隐藏文件上传
+  #   - name: Upload .next folder as artifact
+  #     uses: actions/upload-artifact@v4
+  #     with:
+  #       name: next-build
+  #       path: .next
+  #       include-hidden-files: true  # 启用隐藏文件上传
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    # needs: build
     env:  # 在这里定义环境变量，所有步骤都可以使用
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USER }}
@@ -65,6 +65,7 @@ jobs:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       BAILIAN_APP_ID: ${{ secrets.BAILIAN_APP_ID }}
       BAILIAN_API_KEY: ${{ secrets.BAILIAN_API_KEY }}
+      AUTH_URL: ${{ secrets.AUTH_URL }}
 
     steps:
     - name: Checkout Code
@@ -79,13 +80,13 @@ jobs:
     - name: Install SSH Client
       run: sudo apt-get install -y sshpass
 
-    - name: Remove existing .next folder on server
-      run: |
-        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "source ~/.nvm/nvm.sh && nvm use v21.6.2 && pm2 id blog-next > /dev/null 2>&1 && pm2 del blog-next || echo 'blog-next process not found' && rm -rf /root/projects/blog-next/.next"
+    # - name: Remove existing .next folder on server
+    #   run: |
+    #     sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "source ~/.nvm/nvm.sh && nvm use v21.6.2 && pm2 id blog-next > /dev/null 2>&1 && pm2 del blog-next || echo 'blog-next process not found' && rm -rf /root/projects/blog-next/.next"
 
-    - name: Transfer .next to Remote Server
-      run: |
-        sshpass -p $SSH_PASSWORD scp -o StrictHostKeyChecking=no -r .next $SSH_USER@$SSH_HOST:/root/projects/blog-next/.next
+    # - name: Transfer .next to Remote Server
+    #   run: |
+    #     sshpass -p $SSH_PASSWORD scp -o StrictHostKeyChecking=no -r .next $SSH_USER@$SSH_HOST:/root/projects/blog-next/.next
 
     - name: Deploy to Remote Server
       run: |
@@ -106,10 +107,13 @@ jobs:
           echo "DATABASE_URL=$DATABASE_URL" > .env
           echo "BAILIAN_APP_ID=$BAILIAN_APP_ID" >> .env
           echo "BAILIAN_API_KEY=$BAILIAN_API_KEY" >> .env
+          echo "AUTH_URL=$AUTH_URL" >> .env
 
           # 同步prisma并生成@prisma/client
           npx prisma generate
 
+          npm run build
+
           # 使用 pm2 启动服务
-          pm2 start pm2.json
+          pm2 restart pm2.json || pm2 start pm2.json
         EOF
