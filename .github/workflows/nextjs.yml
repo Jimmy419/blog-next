@@ -114,6 +114,8 @@ jobs:
           # 同步prisma并生成@prisma/client
           npx prisma generate
 
+          export NODE_OPTIONS="--max-old-space-size=3072"
+          
           npm run build
 
           # 使用 pm2 启动服务
