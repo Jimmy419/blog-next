@@ -1,59 +1,78 @@
 #!/bin/bash
 
-# 检查是否传入了路径参数
-if [ -z "$1" ]; then
-  echo "请传入日志文件夹路径作为参数"
+set -euo pipefail
+shopt -s nullglob
+
+# 用脚本所在目录推导项目根目录，避免 cron 下 pwd 不可靠。
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+project_dir="${1:-$script_dir}"
+log_dir="$project_dir/logs"
+timestamp="$(date +%Y-%m-%d_%H-%M-%S)"
+lock_dir="$log_dir/.log-split.lock"
+
+if [ ! -d "$project_dir" ]; then
+  echo "项目目录不存在: $project_dir" >&2
   exit 1
 fi
 
-# 获取传入的日志目录路径并切换到该目录
-target_dir="$1"
-
-# 检查日志目录是否存在
-if [ ! -d "$target_dir" ]; then
-  echo "目标路径不存在: $target_dir"
+if [ ! -d "$log_dir" ]; then
+  echo "日志目录不存在: $log_dir" >&2
   exit 1
 fi
 
-cd "$target_dir" || exit
+if ! mkdir "$lock_dir" 2>/dev/null; then
+  echo "已有日志切分任务在运行，跳过本次执行: $lock_dir" >&2
+  exit 1
+fi
 
-# 获取当前日期，格式为 YYYY-MM-DD
-current_date=$(date +%Y-%m-%d)
+cleanup() {
+  rmdir "$lock_dir" 2>/dev/null || true
+}
 
-# 日志文件夹路径
-log_dir="$(pwd)/logs"
+trap cleanup EXIT
 
-# 遍历错误日志文件 (err-*.log)
-for err_log in "$log_dir"/err-*.log; do
-  # 获取日志文件的文件名部分 (不带路径)
-  log_filename=$(basename "$err_log")
+split_one_log() {
+  local source_file="$1"
+  local file_name
+  local archive_file
+  local temp_file
 
-  # 生成新的文件名，添加日期前缀
-  new_log_file="$log_dir/${current_date}.${log_filename}"
+  if [ ! -f "$source_file" ]; then
+    return 0
+  fi
 
-  # 将错误日志文件的内容复制到新的文件中
-  cp "$err_log" "$new_log_file"
+  if [ ! -s "$source_file" ]; then
+    echo "跳过空日志文件: $source_file"
+    return 0
+  fi
 
-  # 清空源错误日志文件
-  : > "$err_log"
+  file_name="$(basename "$source_file")"
+  archive_file="$log_dir/${timestamp}.${file_name}"
+  temp_file="${archive_file}.tmp.$$"
 
-  echo "日志文件 $err_log 已备份为 $new_log_file 并清空原文件"
+  if ! cp -p "$source_file" "$temp_file"; then
+    echo "备份失败，保留原日志文件不清空: $source_file" >&2
+    rm -f "$temp_file"
+    return 1
+  fi
+
+  mv "$temp_file" "$archive_file"
+
+  if ! : > "$source_file"; then
+    echo "清空原日志文件失败，请手动检查: $source_file" >&2
+    return 1
+  fi
+
+  echo "日志文件 $source_file 已备份为 $archive_file 并清空原文件"
+}
+
+matched_files=("$log_dir"/err*.log "$log_dir"/out*.log)
+
+if [ "${#matched_files[@]}" -eq 0 ]; then
+  echo "未找到需要切分的日志文件: $log_dir"
+  exit 0
+fi
+
+for log_file in "${matched_files[@]}"; do
+  split_one_log "$log_file"
 done
-
-# 遍历普通日志文件 (err-*.log)
-for out_log in "$log_dir"/out-*.log; do
-  # 获取日志文件的文件名部分 (不带路径)
-  log_filename=$(basename "$out_log")
-
-  # 生成新的文件名，添加日期前缀
-  new_log_file="$log_dir/${current_date}.${log_filename}"
-
-  # 将错误日志文件的内容复制到新的文件中
-  cp "$out_log" "$new_log_file"
-
-  # 清空源错误日志文件
-  : > "$out_log"
-
-  echo "日志文件 $out_log 已备份为 $new_log_file 并清空原文件"
-done
-
