@@ -105,7 +105,8 @@ export default function GoalManager({ initialGoals }: GoalManagerProps) {
 
   const handleAddRecord = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const goalId = Number(formData.get("goalId"));
     const value = Number(formData.get("value"));
     const note = `${formData.get("note") || ""}`.trim();
@@ -122,8 +123,8 @@ export default function GoalManager({ initialGoals }: GoalManagerProps) {
           recordDate,
         });
         setMessage("进度记录成功");
-        event.currentTarget.reset();
-        const datetime = event.currentTarget.querySelector<HTMLInputElement>(
+        form.reset();
+        const datetime = form.querySelector<HTMLInputElement>(
           "input[name='recordDate']"
         );
         if (datetime) {
@@ -137,10 +138,19 @@ export default function GoalManager({ initialGoals }: GoalManagerProps) {
   };
 
   const handleDeleteGoal = (goalId: number) => {
+    const password = window.prompt("请输入登录密码以确认删除该目标：");
+    if (password === null) {
+      return;
+    }
+    if (!password.trim()) {
+      setMessage("请输入密码后再删除");
+      return;
+    }
+
     setMessage("");
     startTransition(async () => {
       try {
-        await deleteGoal(goalId);
+        await deleteGoal({ goalId, password: password.trim() });
         setMessage("目标已删除");
         router.refresh();
       } catch (error) {
