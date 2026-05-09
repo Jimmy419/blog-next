@@ -39,6 +39,20 @@ const toDatetimeLocal = (value: Date = new Date()) => {
   return local.toISOString().slice(0, 16);
 };
 
+const toSafeImageSrc = (raw: string | null) => {
+  if (!raw) return raw;
+  if (raw.startsWith("/")) return raw;
+  try {
+    const parsed = new URL(raw);
+    if (parsed.pathname.startsWith("/uploads/")) {
+      return parsed.pathname;
+    }
+    return raw;
+  } catch {
+    return raw;
+  }
+};
+
 export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -234,7 +248,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         ) : null}
         {goal.rewardImage ? (
           <Image
-            src={goal.rewardImage}
+            src={toSafeImageSrc(goal.rewardImage) || ""}
             alt={goal.rewardText || "reward"}
             width={280}
             height={160}
@@ -252,18 +266,18 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
       {isEditing ? (
         <form
           onSubmit={handleUpdateGoal}
-          className="grid gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+          className="grid w-full min-w-0 gap-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
         >
           <h2 className="text-lg font-medium">编辑目标</h2>
           <input
-            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             value={editTitle}
             onChange={(event) => setEditTitle(event.target.value)}
             placeholder="目标名称"
             required
           />
           <input
-            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="number"
             min={1}
             value={editTargetValue}
@@ -271,7 +285,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             required
           />
           <input
-            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             value={editRewardText}
             onChange={(event) => setEditRewardText(event.target.value)}
             placeholder="奖励说明（可选）"
@@ -284,12 +298,12 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
               type="file"
               accept="image/*"
               onChange={handleUploadImage}
-              className="rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
+              className="w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
             />
             {editRewardImage ? (
               <div className="flex items-start gap-3">
                 <Image
-                  src={editRewardImage}
+                  src={toSafeImageSrc(editRewardImage) || ""}
                   alt="reward preview"
                   width={220}
                   height={140}
@@ -317,12 +331,12 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
 
       <form
         onSubmit={handleAddRecord}
-        className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+        className="w-full min-w-0 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
       >
         <h2 className="mb-3 text-lg font-medium">记录进度</h2>
         <div className="grid grid-cols-2 gap-2">
           <input
-            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="number"
             name="value"
             placeholder="增量（如 +1）"
@@ -330,7 +344,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             required
           />
           <input
-            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="datetime-local"
             name="recordDate"
             defaultValue={toDatetimeLocal()}

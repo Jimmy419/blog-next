@@ -65,6 +65,20 @@ export default function GoalCreateForm() {
     });
   };
 
+  const toSafeImageSrc = (raw: string) => {
+    if (!raw) return raw;
+    if (raw.startsWith("/")) return raw;
+    try {
+      const parsed = new URL(raw);
+      if (parsed.pathname.startsWith("/uploads/")) {
+        return parsed.pathname;
+      }
+      return raw;
+    } catch {
+      return raw;
+    }
+  };
+
   return (
     <section className="mx-auto max-w-3xl space-y-6 p-4">
       <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 p-5 shadow-xl">
@@ -90,17 +104,17 @@ export default function GoalCreateForm() {
 
       <form
         onSubmit={handleCreateGoal}
-        className="grid gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+        className="grid w-full min-w-0 gap-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
       >
         <input
-          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+          className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           placeholder="目标名称（例如：好好吃饭）"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           required
         />
         <input
-          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+          className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           type="number"
           min={1}
           value={targetValue}
@@ -108,7 +122,7 @@ export default function GoalCreateForm() {
           required
         />
         <input
-          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+          className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           placeholder="奖励说明（例如：玩具车）"
           value={rewardText}
           onChange={(event) => setRewardText(event.target.value)}
@@ -122,11 +136,11 @@ export default function GoalCreateForm() {
             type="file"
             accept="image/*"
             onChange={handleUploadImage}
-            className="rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
+            className="w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
           />
           {rewardImage ? (
             <Image
-              src={rewardImage}
+              src={toSafeImageSrc(rewardImage)}
               alt="reward preview"
               width={280}
               height={160}

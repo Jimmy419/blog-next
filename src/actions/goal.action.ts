@@ -32,6 +32,26 @@ const verifyUserPassword = async (authorId: number, password: string) => {
   }
 };
 
+const normalizeRewardImage = (value?: string | null) => {
+  if (!value) return null;
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+
+  if (trimmed.startsWith("/")) return trimmed;
+
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.pathname.startsWith("/uploads/")) {
+      // 统一存相对路径，避免历史数据里带 localhost/旧域名导致生产加载失败
+      return parsed.pathname;
+    }
+  } catch {
+    // 非法 URL 按原值处理，让上层校验兜底
+  }
+
+  return trimmed;
+};
+
 export const createGoal = async (data: {
   title: string;
   targetValue: number;
@@ -53,7 +73,7 @@ export const createGoal = async (data: {
       title: parsed.title,
       targetValue: parsed.targetValue,
       rewardText: parsed.rewardText || null,
-      rewardImage: parsed.rewardImage || null,
+      rewardImage: normalizeRewardImage(parsed.rewardImage),
       authorId,
     },
   });
@@ -99,7 +119,9 @@ export const updateGoal = async (data: {
       targetValue: parsed.targetValue,
       rewardText: parsed.rewardText || null,
       rewardImage:
-        parsed.rewardImage === undefined ? undefined : parsed.rewardImage || null,
+        parsed.rewardImage === undefined
+          ? undefined
+          : normalizeRewardImage(parsed.rewardImage),
       status: nextStatus,
     },
   });
