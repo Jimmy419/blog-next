@@ -334,7 +334,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
           />
           <div className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-0 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2 overflow-hidden">
             <input
-            className="w-full min-w-0 rounded-lg bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="w-full min-w-0 rounded-lg bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2 text-left"
             type="datetime-local"
             name="recordDate"
             defaultValue={toDatetimeLocal()}
