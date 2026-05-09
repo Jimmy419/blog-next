@@ -39,3 +39,6 @@ next-env.d.ts
 cron-log.log
 
 .env
+
+reboot-pm2.log
+yarn.lock

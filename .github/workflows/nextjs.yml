@@ -67,7 +67,6 @@ jobs:
       BAILIAN_API_KEY: ${{ secrets.BAILIAN_API_KEY }}
       AUTH_URL: ${{ secrets.AUTH_URL }}
       AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
-      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
       SMTP_HOST: ${{ secrets.SMTP_HOST }}
       SMTP_PORT: ${{ secrets.SMTP_PORT }}
       SMTP_USER: ${{ secrets.SMTP_USER }}
@@ -119,7 +118,6 @@ jobs:
           echo "BAILIAN_API_KEY=$BAILIAN_API_KEY" >> .env
           echo "AUTH_URL=$AUTH_URL" >> .env
           echo "AUTH_SECRET=$AUTH_SECRET" >> .env
-          echo "NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL" >> .env
           echo "SMTP_HOST=$SMTP_HOST" >> .env
           echo "SMTP_PORT=$SMTP_PORT" >> .env
           echo "SMTP_USER=$SMTP_USER" >> .env
