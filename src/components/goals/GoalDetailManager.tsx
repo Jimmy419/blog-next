@@ -1,6 +1,6 @@
 "use client";
 
-import { addGoalRecord, deleteGoal } from "@/actions/goal.action";
+import { addGoalRecord, deleteGoal, deleteGoalRecord } from "@/actions/goal.action";
 import BackButton from "@/components/common/BackButton";
 import Image from "next/image";
 import Link from "next/link";
@@ -96,6 +96,30 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
     });
   };
 
+  const handleDeleteRecord = (recordId: number) => {
+    const password = window.prompt("请输入登录密码以确认删除该条记录：");
+    if (password === null) return;
+    if (!password.trim()) {
+      setMessage("请输入密码后再删除记录");
+      return;
+    }
+    setMessage("");
+
+    startTransition(async () => {
+      try {
+        await deleteGoalRecord({
+          goalId: goal.id,
+          recordId,
+          password: password.trim(),
+        });
+        setMessage("记录已删除");
+        router.refresh();
+      } catch (error) {
+        setMessage(error instanceof Error ? error.message : "删除记录失败");
+      }
+    });
+  };
+
   return (
     <section className="mx-auto max-w-4xl space-y-6 p-4">
       <div className="rounded-lg border p-4 shadow-sm">
@@ -186,14 +210,26 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
           ) : (
             goal.records.map((record) => (
               <li key={record.id} className="rounded bg-gray-50 p-2">
-                <span className="font-medium">
-                  {record.value >= 0 ? "+" : ""}
-                  {record.value}
-                </span>
-                <span className="ml-2 text-gray-600">
-                  {new Date(record.recordDate).toLocaleString()}
-                </span>
-                {record.note ? <p className="text-gray-700">{record.note}</p> : null}
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="font-medium">
+                      {record.value >= 0 ? "+" : ""}
+                      {record.value}
+                    </span>
+                    <span className="ml-2 text-gray-600">
+                      {new Date(record.recordDate).toLocaleString()}
+                    </span>
+                    {record.note ? <p className="text-gray-700">{record.note}</p> : null}
+                  </div>
+                  <button
+                    type="button"
+                    className="rounded border border-red-200 px-2 py-1 text-xs text-red-600"
+                    onClick={() => handleDeleteRecord(record.id)}
+                    disabled={pending}
+                  >
+                    删除
+                  </button>
+                </div>
               </li>
             ))
           )}

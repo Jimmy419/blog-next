@@ -75,7 +75,11 @@ export const login = async (
   const { username, password } = parsed.data;
 
   try {
-    await signIn("credentials", { username, password, redirectTo: "/" });
+    await signIn("credentials", {
+      username,
+      password,
+      redirectTo: "/personal/goals",
+    });
     return "User Signed In!";
   } catch (err) {
     if (err instanceof AuthError) {

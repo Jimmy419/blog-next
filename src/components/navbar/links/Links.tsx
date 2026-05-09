@@ -1,7 +1,5 @@
 "use client";
-import { FC, useMemo, useState } from "react";
-import NavLink from "./navLink/NavLink";
-
+import { FC, useState } from "react";
 import { Session } from "next-auth";
 import { handleLogout } from "@/actions/auth.action";
 import Link from "next/link";
@@ -16,92 +14,106 @@ const Links: FC<LinksProps> = ({ session }) => {
   const isAuthed = Boolean(session?.user);
   const displayName =
     session?.user?.name || session?.user?.email || `用户#${session?.user?.id || ""}`;
-  const links = useMemo(
-    () => [
-      {
-        title: "home",
-        path: "/",
-      },
-      {
-        title: "About",
-        path: "/about",
-      },
-      {
-        title: "Contact",
-        path: "/contact",
-      },
-      {
-        title: "Blog",
-        path: "/blog",
-      },
-      {
-        title: "JTool",
-        path: "/jtool",
-      },
-    ],
-    []
-  );
-  const authedLinks = useMemo(
-    () => [
-      { title: "我的", path: "/personal/me" },
-      { title: "目标", path: "/personal/goals" },
-      { title: "Robot", path: "/robot" },
-    ],
-    []
-  );
-
-  const mobileLinks = isAuthed ? [...links, ...authedLinks] : links;
-  const isAdmin = false;
+  // 业务聚焦：暂时仅保留目标相关入口，其余导航先收起
+  // const archivedLinks = ["/", "/about", "/contact", "/blog", "/jtool", "/robot", "/personal/me"];
+  const goalLinks = [
+    { title: "目标列表", path: "/personal/goals" },
+    { title: "创建目标", path: "/personal/goals/new" },
+  ];
   const [open, setOpen] = useState(false);
 
   return (
     <div>
-      <div className="hidden items-center md:flex">
-        {links.map((item) => (
-          <NavLink item={item} key={item.title} />
-        ))}
+      <div className="hidden items-center gap-2 md:flex">
         {isAuthed ? (
           <>
-            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-            <span className="px-3 text-sm text-white/90">{displayName}</span>
-            {authedLinks.map((item) => (
-              <NavLink item={item} key={item.path} />
+            <span className="px-3 text-sm text-slate-300">{displayName}</span>
+            {goalLinks.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                  pathname === item.path
+                    ? "bg-blue-600 text-white"
+                    : "text-slate-200 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {item.title}
+              </Link>
             ))}
             <form action={handleLogout}>
-              <button className="rounded-full border border-white/30 px-3 py-1 text-sm text-white/90">
+              <button className="rounded-full border border-red-300/40 px-3 py-1 text-sm text-red-200">
                 Logout
               </button>
             </form>
           </>
         ) : (
-          <NavLink item={{ title: "Login", path: "/login" }} />
+          <Link
+            href="/login"
+            className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white"
+          >
+            Login
+          </Link>
         )}
       </div>
 
-      <button
-        type="button"
-        className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg border border-slate-500 bg-slate-800 md:hidden"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-label={open ? "关闭菜单" : "打开菜单"}
-      >
-        <span
-          className={`absolute h-0.5 w-5 bg-white transition ${
-            open ? "rotate-45" : "-translate-y-1.5"
-          }`}
-        />
-        <span
-          className={`absolute h-0.5 w-5 bg-white transition ${
-            open ? "opacity-0" : "opacity-100"
-          }`}
-        />
-        <span
-          className={`absolute h-0.5 w-5 bg-white transition ${
-            open ? "-rotate-45" : "translate-y-1.5"
-          }`}
-        />
-      </button>
+      <div className="flex items-center gap-2 md:hidden">
+        {isAuthed ? (
+          <>
+            {/* <Link
+              href="/personal/goals"
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
+                pathname === "/personal/goals"
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-100"
+              }`}
+            >
+              目标
+            </Link>
+            <Link
+              href="/personal/goals/new"
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
+                pathname === "/personal/goals/new"
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-100"
+              }`}
+            >
+              + 新建
+            </Link> */}
+            <button
+              type="button"
+              className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg border border-slate-500 bg-slate-800"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-label={open ? "关闭菜单" : "打开菜单"}
+            >
+              <span
+                className={`absolute h-0.5 w-5 bg-white transition ${
+                  open ? "rotate-45" : "-translate-y-1.5"
+                }`}
+              />
+              <span
+                className={`absolute h-0.5 w-5 bg-white transition ${
+                  open ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute h-0.5 w-5 bg-white transition ${
+                  open ? "-rotate-45" : "translate-y-1.5"
+                }`}
+              />
+            </button>
+          </>
+        ) : (
+          <Link
+            href="/login"
+            className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white"
+          >
+            Login
+          </Link>
+        )}
+      </div>
 
-      {open ? (
+      {open && isAuthed ? (
         <div className="fixed inset-0 z-40 md:hidden">
           <button
             type="button"
@@ -109,55 +121,39 @@ const Links: FC<LinksProps> = ({ session }) => {
             aria-label="关闭菜单遮罩"
             onClick={() => setOpen(false)}
           />
-          <aside className="absolute right-0 top-0 h-full w-[85vw] max-w-sm border-l border-slate-700 bg-slate-950 p-5 text-white shadow-2xl">
+          <aside className="absolute bottom-0 left-0 right-0 rounded-t-3xl border-t border-slate-700 bg-slate-950 p-5 text-white shadow-2xl">
+            <div className="mb-4 mx-auto h-1.5 w-10 rounded-full bg-slate-700" />
             <div className="mb-5 rounded-xl border border-slate-700 bg-slate-900 p-3">
-              <p className="text-xs text-slate-400">导航菜单</p>
+              <p className="text-xs text-slate-400">账户</p>
               <p className="mt-1 truncate text-sm font-medium">
-                {isAuthed ? displayName : "未登录"}
+                {displayName}
               </p>
             </div>
 
-            <nav className="flex flex-col gap-2">
-              {mobileLinks.map((item) => {
-                const active = pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    onClick={() => setOpen(false)}
-                    className={`rounded-xl px-3 py-2 text-base font-medium transition ${
-                      active
-                        ? "bg-blue-600 text-white"
-                        : "border border-slate-700 bg-slate-900 text-slate-100"
-                    }`}
-                  >
-                    {item.title}
-                  </Link>
-                );
-              })}
-              {isAuthed ? (
-                <form action={handleLogout}>
-                  <button
-                    className="mt-2 w-full rounded-xl border border-red-400/60 bg-red-500/10 px-3 py-2 text-left font-medium text-red-200"
-                    onClick={() => setOpen(false)}
-                  >
-                    Logout
-                  </button>
-                </form>
-              ) : (
+            <nav className="grid grid-cols-2 gap-2">
+              {goalLinks.map((item) => (
                 <Link
-                  href="/login"
+                  key={item.path}
+                  href={item.path}
                   onClick={() => setOpen(false)}
-                  className={`mt-2 rounded-xl px-3 py-2 text-base transition ${
-                    pathname === "/login"
-                      ? "bg-blue-600 text-white"
-                      : "border border-slate-700 bg-slate-900 text-slate-100"
+                  className={`rounded-xl border px-3 py-2 text-center text-sm font-medium ${
+                    pathname === item.path
+                      ? "border-blue-500 bg-blue-600 text-white"
+                      : "border-slate-700 bg-slate-900 text-slate-100"
                   }`}
                 >
-                  Login
+                  {item.title}
                 </Link>
-              )}
+              ))}
             </nav>
+            <form action={handleLogout}>
+              <button
+                className="mt-4 w-full rounded-xl border border-red-400/60 bg-red-500/10 px-3 py-2 text-left font-medium text-red-200"
+                onClick={() => setOpen(false)}
+              >
+                Logout
+              </button>
+            </form>
           </aside>
         </div>
       ) : null}

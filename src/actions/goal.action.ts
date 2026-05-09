@@ -18,6 +18,20 @@ const requireAuth = async () => {
   return Number(session.user.id);
 };
 
+const verifyUserPassword = async (authorId: number, password: string) => {
+  const currentUser = await goalDb.user.findUnique({
+    where: { id: authorId },
+    select: { password: true },
+  });
+  if (!currentUser) {
+    throw new Error("用户不存在，请重新登录");
+  }
+  const passwordValid = await bcrypt.compare(password, currentUser.password);
+  if (!passwordValid) {
+    throw new Error("密码错误，操作失败");
+  }
+};
+
 export const createGoal = async (data: {
   title: string;
   targetValue: number;
@@ -160,17 +174,7 @@ export const deleteGoal = async (data: { goalId: number; password: string }) => 
     })
     .parse(data);
 
-  const currentUser = await goalDb.user.findUnique({
-    where: { id: authorId },
-    select: { password: true },
-  });
-  if (!currentUser) {
-    throw new Error("用户不存在，请重新登录");
-  }
-  const passwordValid = await bcrypt.compare(parsed.password, currentUser.password);
-  if (!passwordValid) {
-    throw new Error("密码错误，删除失败");
-  }
+  await verifyUserPassword(authorId, parsed.password);
 
   const goal = await goalDb.goal.findUnique({
     where: { id: parsed.goalId },
@@ -182,6 +186,60 @@ export const deleteGoal = async (data: { goalId: number; password: string }) => 
 
   await goalDb.goal.delete({
     where: { id: parsed.goalId },
+  });
+
+  revalidatePath("/personal/goals");
+  revalidatePath(`/personal/goals/${parsed.goalId}`);
+  return { success: true };
+};
+
+export const deleteGoalRecord = async (data: {
+  goalId: number;
+  recordId: number;
+  password: string;
+}) => {
+  const authorId = await requireAuth();
+  const parsed = z
+    .object({
+      goalId: z.number().int().positive(),
+      recordId: z.number().int().positive(),
+      password: z.string().min(6, "请输入登录密码"),
+    })
+    .parse(data);
+
+  await verifyUserPassword(authorId, parsed.password);
+
+  const goal = await goalDb.goal.findUnique({
+    where: { id: parsed.goalId },
+  });
+  if (!goal || goal.authorId !== authorId) {
+    throw new Error("目标不存在或无权限");
+  }
+
+  const record = await goalDb.goalRecord.findUnique({
+    where: { id: parsed.recordId },
+  });
+  if (!record || record.goalId !== parsed.goalId) {
+    throw new Error("进度记录不存在或无权限");
+  }
+
+  await prisma.$transaction(async (tx) => {
+    const txDb = tx as any;
+    await txDb.goalRecord.delete({
+      where: { id: parsed.recordId },
+    });
+
+    const nextCurrentValue = Math.max(0, goal.currentValue - record.value);
+    const nextStatus =
+      nextCurrentValue >= goal.targetValue ? "COMPLETED" : "IN_PROGRESS";
+
+    await txDb.goal.update({
+      where: { id: parsed.goalId },
+      data: {
+        currentValue: nextCurrentValue,
+        status: nextStatus,
+      },
+    });
   });
 
   revalidatePath("/personal/goals");
