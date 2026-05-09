@@ -334,7 +334,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         className="w-full min-w-0 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
       >
         <h2 className="mb-3 text-lg font-medium">记录进度</h2>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           <input
             className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="number"
