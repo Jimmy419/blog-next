@@ -26,8 +26,8 @@ body {
     rgb(var(--background-start-rgb));
   background-color: rgb(2 6 23);
   overflow-x: hidden;
+  overflow-y: auto;
   overscroll-behavior-x: none;
-  overscroll-behavior-y: none;
   min-height: 100dvh;
 }
 
@@ -36,7 +36,6 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior-x: none;
-  overscroll-behavior-y: none;
   min-height: 100%;
 }
 
@@ -52,5 +51,21 @@ html {
   textarea,
   select {
     font-size: 16px !important;
+  }
+
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  .goal-datetime-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .goal-datetime-input::-webkit-date-and-time-value {
+    text-align: left;
   }
 }

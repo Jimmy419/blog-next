@@ -42,3 +42,5 @@ cron-log.log
 
 reboot-pm2.log
 yarn.lock
+
+public/uploads/*

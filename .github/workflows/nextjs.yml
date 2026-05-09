@@ -75,6 +75,7 @@ jobs:
       MAIL_FROM_NAME: ${{ secrets.MAIL_FROM_NAME }}
       MAIL_FROM_ADDRESS: ${{ secrets.MAIL_FROM_ADDRESS }}
       PASSWORD_RESET_TOKEN_TTL_MIN: ${{ secrets.PASSWORD_RESET_TOKEN_TTL_MIN }}
+      GOAL_REWARD_UPLOAD_DIR: ${{ secrets.GOAL_REWARD_UPLOAD_DIR }}
 
     steps:
     - name: Checkout Code
@@ -126,6 +127,7 @@ jobs:
           echo "MAIL_FROM_NAME=$MAIL_FROM_NAME" >> .env
           echo "MAIL_FROM_ADDRESS=$MAIL_FROM_ADDRESS" >> .env
           echo "PASSWORD_RESET_TOKEN_TTL_MIN=$PASSWORD_RESET_TOKEN_TTL_MIN" >> .env
+          echo "GOAL_REWARD_UPLOAD_DIR=$GOAL_REWARD_UPLOAD_DIR" >> .env
 
           # 同步prisma并生成@prisma/client
           npx prisma db push

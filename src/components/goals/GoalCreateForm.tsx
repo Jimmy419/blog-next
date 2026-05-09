@@ -134,7 +134,7 @@ export default function GoalCreateForm() {
           </label>
           <input
             type="file"
-            accept="image/*"
+            accept="image/jpeg,image/png,image/webp"
             onChange={handleUploadImage}
             className="w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
           />
@@ -144,6 +144,7 @@ export default function GoalCreateForm() {
               alt="reward preview"
               width={280}
               height={160}
+              unoptimized
               className="rounded-md border border-slate-700 object-cover"
             />
           ) : null}

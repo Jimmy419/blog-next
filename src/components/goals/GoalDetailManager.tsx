@@ -252,6 +252,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             alt={goal.rewardText || "reward"}
             width={280}
             height={160}
+            unoptimized
             className="mt-2 rounded-md border border-slate-700 object-cover"
           />
         ) : null}
@@ -296,7 +297,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             </label>
             <input
               type="file"
-              accept="image/*"
+              accept="image/jpeg,image/png,image/webp"
               onChange={handleUploadImage}
               className="w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
             />
@@ -307,6 +308,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
                   alt="reward preview"
                   width={220}
                   height={140}
+                  unoptimized
                   className="rounded-md border border-slate-700 object-cover"
                 />
                 <button
@@ -331,7 +333,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
 
       <form
         onSubmit={handleAddRecord}
-        className="w-full min-w-0 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+        className="w-full min-w-0 overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
       >
         <h2 className="mb-3 text-lg font-medium">记录进度</h2>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
@@ -344,7 +346,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             required
           />
           <input
-            className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            className="goal-datetime-input w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="datetime-local"
             name="recordDate"
             defaultValue={toDatetimeLocal()}

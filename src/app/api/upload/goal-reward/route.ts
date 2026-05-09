@@ -5,7 +5,11 @@ import { NextResponse } from "next/server";
 import path from "path";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024;
-const ALLOWED_MIME_PREFIX = "image/";
+const ALLOWED_MIME_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+]);
 
 export const runtime = "nodejs";
 
@@ -22,9 +26,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "未检测到上传文件" }, { status: 400 });
   }
 
-  if (!file.type.startsWith(ALLOWED_MIME_PREFIX)) {
+  if (!ALLOWED_MIME_TYPES.has(file.type)) {
     return NextResponse.json(
-      { error: "仅支持图片文件上传" },
+      { error: "仅支持 jpg/png/webp 图片上传" },
       { status: 400 }
     );
   }
@@ -40,12 +44,10 @@ export async function POST(request: Request) {
     ? file.name.split(".").pop()?.toLowerCase() || "png"
     : "png";
   const fileName = `${Date.now()}-${randomUUID()}.${extension}`;
-  const outputDir = path.join(
-    process.cwd(),
-    "public",
-    "uploads",
-    "goal-rewards"
-  );
+  const uploadBaseDir =
+    process.env.GOAL_REWARD_UPLOAD_DIR ||
+    path.join(process.cwd(), "public", "uploads", "goal-rewards");
+  const outputDir = uploadBaseDir;
   const outputPath = path.join(outputDir, fileName);
 
   await mkdir(outputDir, { recursive: true });
