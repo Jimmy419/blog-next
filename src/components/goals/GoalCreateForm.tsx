@@ -2,6 +2,7 @@
 
 import { createGoal } from "@/actions/goal.action";
 import BackButton from "@/components/common/BackButton";
+import { toGoalRewardApiPath } from "@/lib/goal-reward-image";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -65,20 +66,6 @@ export default function GoalCreateForm() {
     });
   };
 
-  const toSafeImageSrc = (raw: string) => {
-    if (!raw) return raw;
-    if (raw.startsWith("/")) return raw;
-    try {
-      const parsed = new URL(raw);
-      if (parsed.pathname.startsWith("/uploads/")) {
-        return parsed.pathname;
-      }
-      return raw;
-    } catch {
-      return raw;
-    }
-  };
-
   return (
     <section className="mx-auto max-w-3xl space-y-6 p-4">
       <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 p-5 shadow-xl">
@@ -140,7 +127,7 @@ export default function GoalCreateForm() {
           />
           {rewardImage ? (
             <Image
-              src={toSafeImageSrc(rewardImage)}
+              src={toGoalRewardApiPath(rewardImage) || rewardImage}
               alt="reward preview"
               width={280}
               height={160}

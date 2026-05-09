@@ -2,6 +2,7 @@
 
 import prisma from "@/db";
 import { auth } from "@/lib/auth";
+import { toGoalRewardApiPath } from "@/lib/goal-reward-image";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
@@ -32,26 +33,6 @@ const verifyUserPassword = async (authorId: number, password: string) => {
   }
 };
 
-const normalizeRewardImage = (value?: string | null) => {
-  if (!value) return null;
-  const trimmed = value.trim();
-  if (!trimmed) return null;
-
-  if (trimmed.startsWith("/")) return trimmed;
-
-  try {
-    const parsed = new URL(trimmed);
-    if (parsed.pathname.startsWith("/uploads/")) {
-      // 统一存相对路径，避免历史数据里带 localhost/旧域名导致生产加载失败
-      return parsed.pathname;
-    }
-  } catch {
-    // 非法 URL 按原值处理，让上层校验兜底
-  }
-
-  return trimmed;
-};
-
 export const createGoal = async (data: {
   title: string;
   targetValue: number;
@@ -73,7 +54,7 @@ export const createGoal = async (data: {
       title: parsed.title,
       targetValue: parsed.targetValue,
       rewardText: parsed.rewardText || null,
-      rewardImage: normalizeRewardImage(parsed.rewardImage),
+      rewardImage: toGoalRewardApiPath(parsed.rewardImage),
       authorId,
     },
   });
@@ -121,7 +102,7 @@ export const updateGoal = async (data: {
       rewardImage:
         parsed.rewardImage === undefined
           ? undefined
-          : normalizeRewardImage(parsed.rewardImage),
+          : toGoalRewardApiPath(parsed.rewardImage),
       status: nextStatus,
     },
   });

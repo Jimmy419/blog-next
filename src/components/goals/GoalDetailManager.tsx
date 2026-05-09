@@ -7,6 +7,7 @@ import {
   updateGoal,
 } from "@/actions/goal.action";
 import BackButton from "@/components/common/BackButton";
+import { toGoalRewardApiPath } from "@/lib/goal-reward-image";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -37,20 +38,6 @@ interface GoalDetailManagerProps {
 const toDatetimeLocal = (value: Date = new Date()) => {
   const local = new Date(value.getTime() - value.getTimezoneOffset() * 60000);
   return local.toISOString().slice(0, 16);
-};
-
-const toSafeImageSrc = (raw: string | null) => {
-  if (!raw) return raw;
-  if (raw.startsWith("/")) return raw;
-  try {
-    const parsed = new URL(raw);
-    if (parsed.pathname.startsWith("/uploads/")) {
-      return parsed.pathname;
-    }
-    return raw;
-  } catch {
-    return raw;
-  }
 };
 
 export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
@@ -248,7 +235,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         ) : null}
         {goal.rewardImage ? (
           <Image
-            src={toSafeImageSrc(goal.rewardImage) || ""}
+            src={toGoalRewardApiPath(goal.rewardImage) || ""}
             alt={goal.rewardText || "reward"}
             width={280}
             height={160}
@@ -304,7 +291,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             {editRewardImage ? (
               <div className="flex items-start gap-3">
                 <Image
-                  src={toSafeImageSrc(editRewardImage) || ""}
+                  src={toGoalRewardApiPath(editRewardImage) || ""}
                   alt="reward preview"
                   width={220}
                   height={140}
@@ -345,12 +332,14 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             defaultValue={1}
             required
           />
-          <input
+          <div className="w-full border border-red-300">
+            <input
             className="goal-datetime-input w-full min-w-0 max-w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="datetime-local"
             name="recordDate"
             defaultValue={toDatetimeLocal()}
           />
+          </div>
         </div>
         <input
           className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"

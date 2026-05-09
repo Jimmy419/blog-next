@@ -1,4 +1,6 @@
 import { auth } from "@/lib/auth";
+import { toGoalRewardApiPath } from "@/lib/goal-reward-image";
+import { getGoalRewardUploadDir } from "@/lib/goal-reward-storage";
 import { randomUUID } from "crypto";
 import { mkdir, writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
@@ -44,10 +46,7 @@ export async function POST(request: Request) {
     ? file.name.split(".").pop()?.toLowerCase() || "png"
     : "png";
   const fileName = `${Date.now()}-${randomUUID()}.${extension}`;
-  const uploadBaseDir =
-    process.env.GOAL_REWARD_UPLOAD_DIR ||
-    path.join(process.cwd(), "public", "uploads", "goal-rewards");
-  const outputDir = uploadBaseDir;
+  const outputDir = getGoalRewardUploadDir();
   const outputPath = path.join(outputDir, fileName);
 
   await mkdir(outputDir, { recursive: true });
@@ -56,6 +55,6 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     success: true,
-    url: `/uploads/goal-rewards/${fileName}`,
+    url: toGoalRewardApiPath(`/uploads/goal-rewards/${fileName}`),
   });
 }
