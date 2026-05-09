@@ -26,11 +26,18 @@ body {
     rgb(var(--background-start-rgb));
   background-color: rgb(2 6 23);
   overflow-x: hidden;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  min-height: 100dvh;
 }
 
 html {
   background-color: rgb(2 6 23);
   overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  min-height: 100%;
 }
 
 @layer utilities {
