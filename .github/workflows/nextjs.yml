@@ -128,7 +128,7 @@ jobs:
           echo "PASSWORD_RESET_TOKEN_TTL_MIN=$PASSWORD_RESET_TOKEN_TTL_MIN" >> .env
 
           # 同步prisma并生成@prisma/client
-          npx prisma generate
+          npx prisma db push
 
           export NODE_OPTIONS="--max-old-space-size=3072"
           
