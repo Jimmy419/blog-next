@@ -10,21 +10,13 @@ import { authConfig } from "./auth.config";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
   secret: process.env.AUTH_SECRET,
-  // trustHost:false,
-  // session: { strategy: "jwt" },
+  session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
-      // credentials: {
-      //   username: {},
-      //   password: {},
-      // },
       async authorize(credentials) {
-        console.log("🚀 ~ authorize ~ credentials:", credentials);
         const parsedCredentials = z
           .object({
-            username: z.string(),
+            username: z.string().trim().min(1),
             password: z.string().min(6),
           })
           .safeParse(credentials);
@@ -40,7 +32,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             password,
             user.password
           );
-          console.log("🚀 ~ authorize ~ isPasswordCorrect:", isPasswordCorrect);
 
           if (isPasswordCorrect) {
             // 只返回非敏感信息，构建符合 NextAuth 的 User 类型
@@ -51,8 +42,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               image: user.image,
               roles: user.roles || "",
             };
-            console.log("🚀 ~ authorize ~ safeUser:", safeUser);
-
             return safeUser;
           }
         }

@@ -5,14 +5,15 @@ import NavLink from "./navLink/NavLink";
 import { Session } from "next-auth";
 import Image from "next/image";
 import { handleLogout } from "@/actions/auth.action";
-import { title } from "process";
-import path from "path";
 
 interface LinksProps {
   session: Session | null;
 }
 
 const Links: FC<LinksProps> = ({ session }) => {
+  const isAuthed = Boolean(session?.user);
+  const displayName =
+    session?.user?.name || session?.user?.email || `用户#${session?.user?.id || ""}`;
   const links = [
     {
       title: "home",
@@ -50,10 +51,12 @@ const Links: FC<LinksProps> = ({ session }) => {
         {links.map((item) => (
           <NavLink item={item} key={item.title} />
         ))}
-        {session && session.user && session.user.id ? (
+        {isAuthed ? (
           <>
             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+            <span className="px-3 text-sm text-white/90">{displayName}</span>
             <NavLink item={{ title: "我的", path: "/personal/me" }} />
+            <NavLink item={{ title: "目标", path: "/personal/goals" }} />
             <NavLink item={{ title: "Robot", path: "/robot" }} />
             <form action={handleLogout}>
               <button className="">Logout</button>

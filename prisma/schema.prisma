@@ -23,6 +23,7 @@ model User {
   roles     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  goals     Goal[]
 }
 
 model Blog {
@@ -33,4 +34,29 @@ model Blog {
   author    Int // 关联用户的 ID
   createdAt DateTime @default(now()) // 自动生成创建时间
   updatedAt DateTime @updatedAt // 自动更新更新时间
+}
+
+model Goal {
+  id          Int          @id @default(autoincrement())
+  title       String
+  targetValue Int
+  currentValue Int         @default(0)
+  rewardText  String?
+  rewardImage String?
+  status      String       @default("IN_PROGRESS") // IN_PROGRESS, COMPLETED
+  authorId    Int
+  author      User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  records     GoalRecord[]
+}
+
+model GoalRecord {
+  id         Int      @id @default(autoincrement())
+  goalId     Int
+  goal       Goal     @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  value      Int
+  note       String?
+  recordDate DateTime @default(now())
+  createdAt  DateTime @default(now())
 }
