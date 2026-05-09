@@ -1,8 +1,9 @@
 "use client";
+
 // @ts-ignore
 import { useFormState, useFormStatus } from "react-dom";
 import Link from "next/link";
-import { login } from "@/actions/auth.action";
+import { resetPassword } from "@/actions/auth.action";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -11,61 +12,63 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       className="w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
-      aria-disabled={pending}
     >
-      {pending ? "登录中..." : "登录"}
+      {pending ? "重置中..." : "确认重置密码"}
     </button>
   );
 }
 
-const LoginForm = () => {
-  const [state, formAction] = useFormState(login, undefined);
-  const errorText = state && state !== "User Signed In!" ? state : "";
+const ResetPasswordForm = ({ token }: { token: string }) => {
+  const [state, formAction] = useFormState(resetPassword, undefined);
 
   return (
     <form className="space-y-4" action={formAction}>
       <div>
-        <h2 className="text-2xl font-bold">登录 GoalManager</h2>
-        <p className="mt-1 text-sm text-slate-300">继续你的目标进度记录</p>
+        <h2 className="text-2xl font-bold">重置密码</h2>
+        <p className="mt-1 text-sm text-slate-300">请设置你的新密码</p>
       </div>
+
+      <input type="hidden" name="token" value={token} />
 
       <div className="space-y-3">
         <input
-          type="text"
-          placeholder="用户名"
-          name="username"
+          type="password"
+          name="password"
+          placeholder="请输入新密码（至少 6 位）"
           required
           className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
         />
         <input
           type="password"
-          placeholder="密码"
-          name="password"
+          name="passwordRepeat"
+          placeholder="请再次输入新密码"
           required
           className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
         />
       </div>
 
-      {errorText ? (
+      {state?.error ? (
         <p className="rounded-lg border border-red-300/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
-          {errorText}
+          {state.error}
+        </p>
+      ) : null}
+
+      {state?.message ? (
+        <p className="rounded-lg border border-emerald-300/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+          {state.message}
         </p>
       ) : null}
 
       <SubmitButton />
 
-      <Link href="/forgot-password" className="block text-sm font-medium text-blue-400">
-        忘记密码？
-      </Link>
-
       <p className="text-sm text-slate-300">
-        还没有账号？
-        <Link href="/register" className="ml-1 font-semibold text-blue-400">
-          去注册
+        已有账号？
+        <Link href="/login" className="ml-1 font-semibold text-blue-400">
+          去登录
         </Link>
       </p>
     </form>
   );
 };
 
-export default LoginForm;
+export default ResetPasswordForm;
