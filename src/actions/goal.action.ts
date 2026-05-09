@@ -63,6 +63,52 @@ export const createGoal = async (data: {
   return { success: true, data: newGoal };
 };
 
+export const updateGoal = async (data: {
+  goalId: number;
+  title: string;
+  targetValue: number;
+  rewardText?: string;
+  rewardImage?: string | null;
+}) => {
+  const authorId = await requireAuth();
+  const parsed = z
+    .object({
+      goalId: z.number().int().positive(),
+      title: z.string().trim().min(1, "目标名称不能为空"),
+      targetValue: z.number().int().positive("目标值必须大于 0"),
+      rewardText: z.string().trim().max(200).optional(),
+      rewardImage: z.string().trim().max(500).nullable().optional(),
+    })
+    .parse(data);
+
+  const goal = await goalDb.goal.findUnique({
+    where: { id: parsed.goalId },
+    select: { id: true, authorId: true, currentValue: true },
+  });
+  if (!goal || goal.authorId !== authorId) {
+    throw new Error("目标不存在或无权限");
+  }
+
+  const nextStatus =
+    goal.currentValue >= parsed.targetValue ? "COMPLETED" : "IN_PROGRESS";
+
+  const updatedGoal = await goalDb.goal.update({
+    where: { id: parsed.goalId },
+    data: {
+      title: parsed.title,
+      targetValue: parsed.targetValue,
+      rewardText: parsed.rewardText || null,
+      rewardImage:
+        parsed.rewardImage === undefined ? undefined : parsed.rewardImage || null,
+      status: nextStatus,
+    },
+  });
+
+  revalidatePath("/personal/goals");
+  revalidatePath(`/personal/goals/${parsed.goalId}`);
+  return { success: true, data: updatedGoal };
+};
+
 export type GoalStatusFilter = "ALL" | "IN_PROGRESS" | "COMPLETED";
 
 export const getMyGoals = async (status: GoalStatusFilter = "ALL") => {

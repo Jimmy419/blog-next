@@ -1,11 +1,16 @@
 "use client";
 
-import { addGoalRecord, deleteGoal, deleteGoalRecord } from "@/actions/goal.action";
+import {
+  addGoalRecord,
+  deleteGoal,
+  deleteGoalRecord,
+  updateGoal,
+} from "@/actions/goal.action";
 import BackButton from "@/components/common/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState, useTransition } from "react";
+import { FormEvent, useEffect, useState, useTransition } from "react";
 
 type GoalRecord = {
   id: number;
@@ -38,10 +43,23 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [editTitle, setEditTitle] = useState(goal.title);
+  const [editTargetValue, setEditTargetValue] = useState(goal.targetValue);
+  const [editRewardText, setEditRewardText] = useState(goal.rewardText || "");
+  const [editRewardImage, setEditRewardImage] = useState(goal.rewardImage || "");
+  const [uploading, setUploading] = useState(false);
   const progress = Math.min(
     100,
     Math.floor((goal.currentValue / goal.targetValue) * 100)
   );
+
+  useEffect(() => {
+    setEditTitle(goal.title);
+    setEditTargetValue(goal.targetValue);
+    setEditRewardText(goal.rewardText || "");
+    setEditRewardImage(goal.rewardImage || "");
+  }, [goal]);
 
   const handleAddRecord = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -120,6 +138,55 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
     });
   };
 
+  const handleUploadImage = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setMessage("");
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await fetch("/api/upload/goal-reward", {
+        method: "POST",
+        body: formData,
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error || "上传失败");
+      }
+      setEditRewardImage(payload.url);
+      setMessage("奖励图片上传成功");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "上传失败");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleUpdateGoal = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setMessage("");
+
+    startTransition(async () => {
+      try {
+        await updateGoal({
+          goalId: goal.id,
+          title: editTitle.trim(),
+          targetValue: editTargetValue,
+          rewardText: editRewardText.trim() || undefined,
+          rewardImage: editRewardImage || null,
+        });
+        setIsEditing(false);
+        setMessage("目标信息更新成功");
+        router.refresh();
+      } catch (error) {
+        setMessage(error instanceof Error ? error.message : "更新目标失败");
+      }
+    });
+  };
+
   return (
     <section className="mx-auto max-w-4xl space-y-6 p-4">
       <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 p-5 shadow-xl">
@@ -148,6 +215,13 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
           <Link href="/personal/goals" className="text-sm text-blue-400">
             目标列表
           </Link>
+          <button
+            type="button"
+            onClick={() => setIsEditing((prev) => !prev)}
+            className="rounded-full border border-slate-600 px-3 py-1 text-xs text-slate-200"
+          >
+            {isEditing ? "收起编辑" : "编辑目标"}
+          </button>
         </div>
         <div className="mt-3 h-2 rounded bg-slate-800">
           <div
@@ -173,6 +247,72 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         <p className="rounded-md border border-blue-300/40 bg-blue-500/10 px-3 py-2 text-sm text-blue-200">
           {message}
         </p>
+      ) : null}
+
+      {isEditing ? (
+        <form
+          onSubmit={handleUpdateGoal}
+          className="grid gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+        >
+          <h2 className="text-lg font-medium">编辑目标</h2>
+          <input
+            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            value={editTitle}
+            onChange={(event) => setEditTitle(event.target.value)}
+            placeholder="目标名称"
+            required
+          />
+          <input
+            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            type="number"
+            min={1}
+            value={editTargetValue}
+            onChange={(event) => setEditTargetValue(Number(event.target.value || 1))}
+            required
+          />
+          <input
+            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            value={editRewardText}
+            onChange={(event) => setEditRewardText(event.target.value)}
+            placeholder="奖励说明（可选）"
+          />
+          <div className="flex flex-col gap-2">
+            <label className="text-sm text-slate-300">
+              奖励图片（可选，支持 jpg/png/webp，2MB 内）
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleUploadImage}
+              className="rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
+            />
+            {editRewardImage ? (
+              <div className="flex items-start gap-3">
+                <Image
+                  src={editRewardImage}
+                  alt="reward preview"
+                  width={220}
+                  height={140}
+                  className="rounded-md border border-slate-700 object-cover"
+                />
+                <button
+                  type="button"
+                  className="rounded border border-red-400/60 bg-red-500/10 px-2 py-1 text-xs text-red-200"
+                  onClick={() => setEditRewardImage("")}
+                >
+                  清空图片
+                </button>
+              </div>
+            ) : null}
+          </div>
+          <button
+            type="submit"
+            disabled={pending || uploading}
+            className="rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:opacity-60"
+          >
+            {pending || uploading ? "处理中..." : "保存修改"}
+          </button>
+        </form>
       ) : null}
 
       <form
