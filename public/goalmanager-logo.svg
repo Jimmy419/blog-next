@@ -1,0 +1,17 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="218" height="54" rx="14" fill="#0F172A"/>
+  <rect x="1" y="1" width="218" height="54" rx="14" stroke="#334155" stroke-width="2"/>
+  <g transform="translate(14 10)">
+    <rect x="0" y="0" width="36" height="36" rx="10" fill="#1E293B"/>
+    <circle cx="18" cy="18" r="10.5" stroke="#22C55E" stroke-width="2.5"/>
+    <circle cx="18" cy="18" r="4" fill="#22C55E"/>
+    <path d="M18 7.5V12.5" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+    <path d="M18 23.5V28.5" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+    <path d="M7.5 18H12.5" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+    <path d="M23.5 18H28.5" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="58" y="24" fill="#F8FAFC" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">GoalManager</text>
+  <text x="58" y="41" fill="#93C5FD" font-size="10.5" font-family="Arial, Helvetica, sans-serif">Track • Focus • Complete</text>
+  <rect x="179" y="22" width="28" height="6" rx="3" fill="#22C55E"/>
+  <rect x="179" y="30" width="18" height="6" rx="3" fill="#3B82F6"/>
+</svg>

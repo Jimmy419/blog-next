@@ -1,6 +1,7 @@
 "use client";
 
 import { createGoal } from "@/actions/goal.action";
+import BackButton from "@/components/common/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -66,11 +67,16 @@ export default function GoalCreateForm() {
 
   return (
     <section className="mx-auto max-w-3xl space-y-6 p-4">
-      <div className="flex items-center justify-between rounded-lg border p-4 shadow-sm">
-        <h1 className="text-2xl font-semibold">创建目标</h1>
-        <Link href="/personal/goals" className="text-sm text-blue-600">
-          返回目标列表
-        </Link>
+      <div className="rounded-lg border p-4 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-2xl font-semibold">创建目标</h1>
+          <div className="flex items-center gap-2">
+            <BackButton fallbackHref="/personal/goals" />
+            <Link href="/personal/goals" className="text-sm text-blue-600">
+              目标列表
+            </Link>
+          </div>
+        </div>
       </div>
 
       {message ? (

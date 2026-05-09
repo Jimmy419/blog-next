@@ -12,9 +12,17 @@ interface NavLinkProps {
 
 const NavLink: FC<NavLinkProps> = ({ item }) => {
   const pathName = usePathname();
+  const active = pathName === item.path;
 
   return (
-    <Link href={item.path} className={`${pathName === item.path && "text-yellow-50"} px-3`}>
+    <Link
+      href={item.path}
+      className={`rounded-full px-3 py-1.5 text-sm transition ${
+        active
+          ? "bg-blue-600 text-white"
+          : "text-slate-200 hover:bg-white/10 hover:text-white"
+      }`}
+    >
       {item.title}
     </Link>
   );

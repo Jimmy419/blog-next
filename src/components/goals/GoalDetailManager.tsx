@@ -1,6 +1,7 @@
 "use client";
 
 import { addGoalRecord, deleteGoal } from "@/actions/goal.action";
+import BackButton from "@/components/common/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -115,6 +116,12 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             {goal.status === "COMPLETED" ? "已达成" : "进行中"}
           </span>
         </div>
+        <div className="mt-3 flex items-center gap-2">
+          <BackButton fallbackHref="/personal/goals" />
+          <Link href="/personal/goals" className="text-sm text-blue-600">
+            目标列表
+          </Link>
+        </div>
         <div className="mt-3 h-2 rounded bg-gray-200">
           <div
             className="h-2 rounded bg-green-500"
@@ -131,11 +138,6 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             className="mt-2 rounded-md border object-cover"
           />
         ) : null}
-        <div className="mt-3">
-          <Link href="/personal/goals" className="text-sm text-blue-600">
-            返回目标列表
-          </Link>
-        </div>
       </div>
 
       {message ? (
