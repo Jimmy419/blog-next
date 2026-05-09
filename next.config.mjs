@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["sequelize", "sequelize-typescript"],
-    runtime: 'experimental-edge',
   },
 };
 

@@ -7,7 +7,7 @@ import { signIn, signOut } from "../lib/auth";
 import { z } from "zod";
 
 export const handleLogout = async () => {
-  await signOut();
+  await signOut({ redirectTo: "/login" });
 };
 
 export const register = async (

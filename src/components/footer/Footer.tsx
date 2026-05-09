@@ -1,9 +1,10 @@
 export default function Footer() {
   return (
-    <div className="h-5">
-      <div className="fixed bottom-0 w-full left-0 h-5 leading-[1.25rem] text-center bg-slate-950 text-white text-sm">
-        版本号8.8.8
+    <footer className="border-t border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between text-xs text-slate-400">
+        <span>GoalManager</span>
+        <span>v1.0.0</span>
       </div>
-    </div>
+    </footer>
   );
 }

@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Providers } from "./providers";
 import { ThemeProvider } from "next-themes";
-import Ai from "@/components/ai/Ai";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-slate-950 text-slate-100`}>
         <Providers>
           <ThemeProvider attribute="class">
-            <Navbar />
-            {children}
-            {/* <Ai /> */}
-            <Footer />
+            <div className="flex min-h-screen bg-slate-950 flex-col">
+              <Navbar />
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </div>
           </ThemeProvider>
         </Providers>
       </body>

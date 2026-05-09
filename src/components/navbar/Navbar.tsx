@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth";
 import Image from "next/image";
+import Link from "next/link";
 import Links from "./links/Links";
 
 const Navbar = async () => {
@@ -8,7 +9,7 @@ const Navbar = async () => {
   return (
     <div className="sticky top-0 z-30 border-b border-slate-700 bg-slate-950 px-4 py-3">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
-        <div className="shrink-0">
+        <Link href="/" className="shrink-0" aria-label="返回首页">
           <Image
             src="/goalmanager-logo.svg"
             alt="GoalManager Logo"
@@ -17,7 +18,7 @@ const Navbar = async () => {
             className="h-10 w-auto md:h-12"
             priority
           />
-        </div>
+        </Link>
         <div>
           <Links session={session} />
         </div>

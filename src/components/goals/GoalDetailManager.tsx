@@ -122,59 +122,67 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
 
   return (
     <section className="mx-auto max-w-4xl space-y-6 p-4">
-      <div className="rounded-lg border p-4 shadow-sm">
+      <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 p-5 shadow-xl">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h1 className="text-2xl font-semibold">{goal.title}</h1>
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-1 text-sm text-slate-300">
               进度：{goal.currentValue} / {goal.targetValue}（{progress}%）
             </p>
           </div>
           <span
             className={`rounded px-2 py-1 text-xs ${
               goal.status === "COMPLETED"
-                ? "bg-green-100 text-green-700"
-                : "bg-yellow-100 text-yellow-700"
+                ? "bg-emerald-500/20 text-emerald-300"
+                : "bg-yellow-500/20 text-yellow-200"
             }`}
           >
             {goal.status === "COMPLETED" ? "已达成" : "进行中"}
           </span>
         </div>
         <div className="mt-3 flex items-center gap-2">
-          <BackButton fallbackHref="/personal/goals" />
-          <Link href="/personal/goals" className="text-sm text-blue-600">
+          <BackButton
+            fallbackHref="/personal/goals"
+            className="border-slate-600 bg-slate-900 text-slate-200 hover:bg-slate-800"
+          />
+          <Link href="/personal/goals" className="text-sm text-blue-400">
             目标列表
           </Link>
         </div>
-        <div className="mt-3 h-2 rounded bg-gray-200">
+        <div className="mt-3 h-2 rounded bg-slate-800">
           <div
-            className="h-2 rounded bg-green-500"
+            className="h-2 rounded bg-emerald-500"
             style={{ width: `${progress}%` }}
           />
         </div>
-        {goal.rewardText ? <p className="mt-3">奖励：{goal.rewardText}</p> : null}
+        {goal.rewardText ? (
+          <p className="mt-3 text-sm text-slate-300">奖励：{goal.rewardText}</p>
+        ) : null}
         {goal.rewardImage ? (
           <Image
             src={goal.rewardImage}
             alt={goal.rewardText || "reward"}
             width={280}
             height={160}
-            className="mt-2 rounded-md border object-cover"
+            className="mt-2 rounded-md border border-slate-700 object-cover"
           />
         ) : null}
       </div>
 
       {message ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-700">
+        <p className="rounded-md border border-blue-300/40 bg-blue-500/10 px-3 py-2 text-sm text-blue-200">
           {message}
         </p>
       ) : null}
 
-      <form onSubmit={handleAddRecord} className="rounded-lg border p-4 shadow-sm">
+      <form
+        onSubmit={handleAddRecord}
+        className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+      >
         <h2 className="mb-3 text-lg font-medium">记录进度</h2>
         <div className="grid grid-cols-2 gap-2">
           <input
-            className="rounded-md border p-2"
+            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="number"
             name="value"
             placeholder="增量（如 +1）"
@@ -182,19 +190,19 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             required
           />
           <input
-            className="rounded-md border p-2"
+            className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
             type="datetime-local"
             name="recordDate"
             defaultValue={toDatetimeLocal()}
           />
         </div>
         <input
-          className="mt-2 w-full rounded-md border p-2"
+          className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           name="note"
           placeholder="备注（例如：今天主动吃完饭）"
         />
         <button
-          className="mt-3 w-full rounded-md bg-blue-600 px-4 py-2 text-white disabled:opacity-60"
+          className="mt-3 w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:opacity-60"
           type="submit"
           disabled={pending}
         >
@@ -202,28 +210,30 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         </button>
       </form>
 
-      <div className="rounded-lg border p-4 shadow-sm">
+      <div className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm">
         <h2 className="text-lg font-medium">历史记录</h2>
         <ul className="mt-3 space-y-2 text-sm">
           {goal.records.length === 0 ? (
-            <li className="text-gray-500">暂无记录</li>
+            <li className="text-slate-400">暂无记录</li>
           ) : (
             goal.records.map((record) => (
-              <li key={record.id} className="rounded bg-gray-50 p-2">
+              <li key={record.id} className="rounded-lg border border-slate-700 bg-slate-950 p-3">
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <span className="font-medium">
                       {record.value >= 0 ? "+" : ""}
                       {record.value}
                     </span>
-                    <span className="ml-2 text-gray-600">
+                    <span className="ml-2 text-slate-400">
                       {new Date(record.recordDate).toLocaleString()}
                     </span>
-                    {record.note ? <p className="text-gray-700">{record.note}</p> : null}
+                    {record.note ? (
+                      <p className="text-slate-300">{record.note}</p>
+                    ) : null}
                   </div>
                   <button
                     type="button"
-                    className="rounded border border-red-200 px-2 py-1 text-xs text-red-600"
+                    className="rounded border border-red-400/60 bg-red-500/10 px-2 py-1 text-xs text-red-200"
                     onClick={() => handleDeleteRecord(record.id)}
                     disabled={pending}
                   >
@@ -237,7 +247,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
       </div>
 
       <button
-        className="rounded-md border border-red-200 px-3 py-2 text-sm text-red-600"
+        className="rounded-lg border border-red-400/60 bg-red-500/10 px-3 py-2 text-sm font-medium text-red-200"
         type="button"
         onClick={handleDeleteGoal}
         disabled={pending}

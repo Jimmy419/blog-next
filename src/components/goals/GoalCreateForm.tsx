@@ -67,12 +67,15 @@ export default function GoalCreateForm() {
 
   return (
     <section className="mx-auto max-w-3xl space-y-6 p-4">
-      <div className="rounded-lg border p-4 shadow-sm">
+      <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 p-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-semibold">创建目标</h1>
           <div className="flex items-center gap-2">
-            <BackButton fallbackHref="/personal/goals" />
-            <Link href="/personal/goals" className="text-sm text-blue-600">
+            <BackButton
+              fallbackHref="/personal/goals"
+              className="border-slate-600 bg-slate-900 text-slate-200 hover:bg-slate-800"
+            />
+            <Link href="/personal/goals" className="text-sm text-blue-400">
               目标列表
             </Link>
           </div>
@@ -80,24 +83,24 @@ export default function GoalCreateForm() {
       </div>
 
       {message ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-700">
+        <p className="rounded-md border border-blue-300/40 bg-blue-500/10 px-3 py-2 text-sm text-blue-200">
           {message}
         </p>
       ) : null}
 
       <form
         onSubmit={handleCreateGoal}
-        className="grid gap-3 rounded-lg border p-4 shadow-sm"
+        className="grid gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
       >
         <input
-          className="rounded-md border p-2"
+          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           placeholder="目标名称（例如：好好吃饭）"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           required
         />
         <input
-          className="rounded-md border p-2"
+          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           type="number"
           min={1}
           value={targetValue}
@@ -105,28 +108,35 @@ export default function GoalCreateForm() {
           required
         />
         <input
-          className="rounded-md border p-2"
+          className="rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
           placeholder="奖励说明（例如：玩具车）"
           value={rewardText}
           onChange={(event) => setRewardText(event.target.value)}
         />
 
         <div className="flex flex-col gap-2">
-          <label className="text-sm">奖励图片（可选，支持 jpg/png/webp，2MB 内）</label>
-          <input type="file" accept="image/*" onChange={handleUploadImage} />
+          <label className="text-sm text-slate-300">
+            奖励图片（可选，支持 jpg/png/webp，2MB 内）
+          </label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleUploadImage}
+            className="rounded-lg border border-slate-700 bg-slate-950 p-2 text-sm text-slate-300 file:mr-3 file:rounded file:border-0 file:bg-slate-800 file:px-2 file:py-1 file:text-slate-200"
+          />
           {rewardImage ? (
             <Image
               src={rewardImage}
               alt="reward preview"
               width={280}
               height={160}
-              className="rounded-md border object-cover"
+              className="rounded-md border border-slate-700 object-cover"
             />
           ) : null}
         </div>
 
         <button
-          className="rounded-md bg-black px-4 py-2 text-white disabled:opacity-60"
+          className="rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:opacity-60"
           type="submit"
           disabled={pending || uploading}
         >

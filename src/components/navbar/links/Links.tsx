@@ -42,7 +42,10 @@ const Links: FC<LinksProps> = ({ session }) => {
               </Link>
             ))}
             <form action={handleLogout}>
-              <button className="rounded-full border border-red-300/40 px-3 py-1 text-sm text-red-200">
+              <button
+                type="submit"
+                className="rounded-full border border-red-300/40 px-3 py-1 text-sm text-red-200"
+              >
                 Logout
               </button>
             </form>
@@ -50,6 +53,7 @@ const Links: FC<LinksProps> = ({ session }) => {
         ) : (
           <Link
             href="/login"
+            prefetch={false}
             className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white"
           >
             Login
@@ -106,6 +110,7 @@ const Links: FC<LinksProps> = ({ session }) => {
         ) : (
           <Link
             href="/login"
+            prefetch={false}
             className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white"
           >
             Login
@@ -148,8 +153,8 @@ const Links: FC<LinksProps> = ({ session }) => {
             </nav>
             <form action={handleLogout}>
               <button
+                type="submit"
                 className="mt-4 w-full rounded-xl border border-red-400/60 bg-red-500/10 px-3 py-2 text-left font-medium text-red-200"
-                onClick={() => setOpen(false)}
               >
                 Logout
               </button>
