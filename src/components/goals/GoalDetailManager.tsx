@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState, useTransition } from "react";
+import ReactDatePicker from "react-datepicker";
 
 type GoalRecord = {
   id: number;
@@ -35,11 +36,6 @@ interface GoalDetailManagerProps {
   goal: GoalDetail;
 }
 
-const toDatetimeLocal = (value: Date = new Date()) => {
-  const local = new Date(value.getTime() - value.getTimezoneOffset() * 60000);
-  return local.toISOString().slice(0, 16);
-};
-
 export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -50,6 +46,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const [editRewardText, setEditRewardText] = useState(goal.rewardText || "");
   const [editRewardImage, setEditRewardImage] = useState(goal.rewardImage || "");
   const [uploading, setUploading] = useState(false);
+  const [recordDateTime, setRecordDateTime] = useState<Date | null>(null);
   const progress = Math.min(
     100,
     Math.floor((goal.currentValue / goal.targetValue) * 100)
@@ -62,14 +59,18 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
     setEditRewardImage(goal.rewardImage || "");
   }, [goal]);
 
+  useEffect(() => {
+    // Avoid SSR hydration mismatch by initializing date after mount.
+    setRecordDateTime(new Date());
+  }, []);
+
   const handleAddRecord = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
     const value = Number(formData.get("value"));
     const note = `${formData.get("note") || ""}`.trim();
-    const recordDateValue = `${formData.get("recordDate") || ""}`.trim();
-    const recordDate = recordDateValue ? new Date(recordDateValue) : new Date();
+    const recordDate = recordDateTime || new Date();
     setMessage("");
 
     startTransition(async () => {
@@ -82,12 +83,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         });
         setMessage("进度记录成功");
         form.reset();
-        const datetime = form.querySelector<HTMLInputElement>(
-          "input[name='recordDate']"
-        );
-        if (datetime) {
-          datetime.value = toDatetimeLocal();
-        }
+        setRecordDateTime(new Date());
         router.refresh();
       } catch (error) {
         setMessage(error instanceof Error ? error.message : "记录进度失败");
@@ -332,14 +328,17 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             defaultValue={1}
             required
           />
-          <div className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-0 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2 overflow-hidden">
-            <input
-            className="w-full min-w-0 rounded-lg bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2 text-left"
-            type="datetime-local"
-            name="recordDate"
-            defaultValue={toDatetimeLocal()}
+          <ReactDatePicker
+            selected={recordDateTime}
+            onChange={(value: Date | null) => setRecordDateTime(value)}
+            showTimeSelect
+            timeIntervals={1}
+            dateFormat="yyyy/MM/dd HH:mm"
+            className="goal-date-input h-12 w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            calendarClassName="goal-date-calendar"
+            popperClassName="goal-date-popper"
+            placeholderText="选择记录时间"
           />
-          </div>
         </div>
         <input
           className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"

@@ -1,3 +1,5 @@
+@import "react-datepicker/dist/react-datepicker.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -68,4 +70,43 @@ html {
   .goal-datetime-input::-webkit-date-and-time-value {
     text-align: left;
   }
+}
+
+.goal-date-calendar.react-datepicker {
+  border: 1px solid rgb(51 65 85);
+  background: rgb(15 23 42);
+  color: rgb(226 232 240);
+}
+
+.goal-date-calendar .react-datepicker__header {
+  border-bottom: 1px solid rgb(51 65 85);
+  background: rgb(15 23 42);
+}
+
+.goal-date-calendar .react-datepicker__current-month,
+.goal-date-calendar .react-datepicker-time__header,
+.goal-date-calendar .react-datepicker-year-header,
+.goal-date-calendar .react-datepicker__day-name,
+.goal-date-calendar .react-datepicker__day,
+.goal-date-calendar .react-datepicker__time-name {
+  color: rgb(226 232 240);
+}
+
+.goal-date-calendar .react-datepicker__day:hover,
+.goal-date-calendar .react-datepicker__time-list-item:hover {
+  background: rgba(37, 99, 235, 0.25);
+}
+
+.goal-date-calendar .react-datepicker__day--selected,
+.goal-date-calendar .react-datepicker__day--keyboard-selected,
+.goal-date-calendar .react-datepicker__time-list-item--selected {
+  background: rgb(37 99 235) !important;
+  color: #fff !important;
+}
+
+.goal-date-calendar .react-datepicker__time-container,
+.goal-date-calendar .react-datepicker__time-box,
+.goal-date-calendar .react-datepicker__time-list {
+  background: rgb(15 23 42);
+  border-left: 1px solid rgb(51 65 85);
 }
