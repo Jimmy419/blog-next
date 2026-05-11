@@ -44,3 +44,4 @@ reboot-pm2.log
 yarn.lock
 
 public/uploads/*
+package-lock.json
