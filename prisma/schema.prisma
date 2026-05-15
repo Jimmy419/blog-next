@@ -26,6 +26,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   goals     Goal[]
+  monopolyGame MonopolyGame?
 }
 
 model Blog {
@@ -62,3 +63,13 @@ model GoalRecord {
   recordDate DateTime @default(now())
   createdAt  DateTime @default(now())
 }
+
+model MonopolyGame {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  gameState Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

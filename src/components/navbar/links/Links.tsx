@@ -17,6 +17,7 @@ const Links: FC<LinksProps> = ({ session }) => {
   // 业务聚焦：暂时仅保留目标相关入口，其余导航先收起
   // const archivedLinks = ["/", "/about", "/contact", "/blog", "/jtool", "/robot", "/personal/me"];
   const goalLinks = [
+    { title: "大富翁", path: "/personal/monopoly" },
     { title: "目标列表", path: "/personal/goals" },
     { title: "创建目标", path: "/personal/goals/new" },
   ];
