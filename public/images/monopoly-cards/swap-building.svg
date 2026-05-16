@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="600" viewBox="0 0 420 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="40" y1="20" x2="380" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fb7185"/>
+      <stop offset="1" stop-color="#be123c"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="40" y1="20" x2="300" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.45)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="420" height="600">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020617" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect x="22" y="22" width="376" height="556" rx="30" fill="#0f172a" filter="url(#shadow)"/>
+  <rect x="34" y="34" width="352" height="532" rx="24" fill="url(#g)"/>
+  <rect x="34" y="34" width="352" height="532" rx="24" fill="rgba(15,23,42,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <path d="M54 54H286C236 126 160 180 74 210L54 54Z" fill="white" fill-opacity="0.18"/>
+  <rect x="58" y="58" width="304" height="62" rx="16" fill="rgba(15,23,42,0.32)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="78" y="96" fill="white" font-size="24" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">建设类</text>
+  <circle cx="210" cy="220" r="92" fill="rgba(15,23,42,0.22)" stroke="rgba(255,255,255,0.25)" stroke-width="4"/>
+  <text x="210" y="250" text-anchor="middle" fill="white" font-size="84" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🏠</text>
+  <text x="210" y="370" text-anchor="middle" fill="white" font-size="42" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-weight="800">换屋卡</text>
+  <rect x="58" y="402" width="304" height="88" rx="18" fill="rgba(15,23,42,0.32)" stroke="rgba(255,255,255,0.16)"/>
+  <text x="210" y="438" text-anchor="middle" fill="rgba(255,255,255,0.95)" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">将指定高楼换到自己地盘</text>
+  <text x="210" y="470" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="16" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">Monopoly Card</text>
+  <rect x="58" y="514" width="146" height="26" rx="13" fill="rgba(255,255,255,0.15)"/>
+  <text x="131" y="533" text-anchor="middle" fill="white" font-size="16" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">经典策略卡</text>
+  <rect x="224" y="514" width="138" height="26" rx="13" fill="rgba(15,23,42,0.28)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="293" y="533" text-anchor="middle" fill="white" font-size="16" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">收藏版</text>
+</svg>
