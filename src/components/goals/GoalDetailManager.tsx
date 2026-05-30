@@ -36,11 +36,15 @@ interface GoalDetailManagerProps {
   goal: GoalDetail;
 }
 
+const getNoteCharacterCount = (note: string) => note.replace(/\s/g, "").length;
+
 export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [recordNote, setRecordNote] = useState("");
+  const [previewImageOpen, setPreviewImageOpen] = useState(false);
   const [editTitle, setEditTitle] = useState(goal.title);
   const [editTargetValue, setEditTargetValue] = useState(goal.targetValue);
   const [editRewardText, setEditRewardText] = useState(goal.rewardText || "");
@@ -69,7 +73,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const value = Number(formData.get("value"));
-    const note = `${formData.get("note") || ""}`.trim();
+    const note = recordNote.trim();
     const recordDate = recordDateTime || new Date();
     setMessage("");
 
@@ -83,6 +87,7 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         });
         setMessage("进度记录成功");
         form.reset();
+        setRecordNote("");
         setRecordDateTime(new Date());
         router.refresh();
       } catch (error) {
@@ -230,16 +235,56 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
           <p className="mt-3 text-sm text-slate-300">奖励：{goal.rewardText}</p>
         ) : null}
         {goal.rewardImage ? (
-          <Image
-            src={toGoalRewardApiPath(goal.rewardImage) || ""}
-            alt={goal.rewardText || "reward"}
-            width={280}
-            height={160}
-            unoptimized
-            className="mt-2 rounded-md border border-slate-700 object-cover"
-          />
+          <button
+            type="button"
+            onClick={() => setPreviewImageOpen(true)}
+            className="mt-2 block text-left"
+          >
+            <Image
+              src={toGoalRewardApiPath(goal.rewardImage) || ""}
+              alt={goal.rewardText || "reward"}
+              width={280}
+              height={160}
+              unoptimized
+              className="rounded-md border border-slate-700 object-cover transition hover:opacity-90"
+            />
+            <span className="mt-2 block text-xs text-slate-400">
+              点击图片查看大图
+            </span>
+          </button>
         ) : null}
       </div>
+
+      {previewImageOpen && goal.rewardImage ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="奖励图片预览"
+          onClick={() => setPreviewImageOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setPreviewImageOpen(false)}
+              className="absolute right-0 top-0 z-10 rounded-full border border-slate-600 bg-slate-900/90 px-3 py-1 text-sm text-slate-100"
+            >
+              关闭
+            </button>
+            <Image
+              src={toGoalRewardApiPath(goal.rewardImage) || ""}
+              alt={goal.rewardText || "reward preview"}
+              width={1600}
+              height={1200}
+              unoptimized
+              className="h-auto max-h-[85vh] w-full rounded-xl object-contain"
+            />
+          </div>
+        </div>
+      ) : null}
 
       {message ? (
         <p className="rounded-md border border-blue-300/40 bg-blue-500/10 px-3 py-2 text-sm text-blue-200">
@@ -340,11 +385,19 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
             placeholderText="选择记录时间"
           />
         </div>
-        <input
-          className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
-          name="note"
-          placeholder="备注（例如：今天主动吃完饭）"
-        />
+        <div className="mt-2">
+          <input
+            className="w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+            name="note"
+            value={recordNote}
+            onChange={(event) => setRecordNote(event.target.value)}
+            maxLength={500}
+            placeholder="备注（例如：今天主动吃完饭）"
+          />
+          <p className="mt-1 text-right text-xs text-slate-400">
+            已输入 {getNoteCharacterCount(recordNote)} / 500 字（不含空格）
+          </p>
+        </div>
         <button
           className="mt-3 w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:opacity-60"
           type="submit"
@@ -372,7 +425,12 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
                       {new Date(record.recordDate).toLocaleString()}
                     </span>
                     {record.note ? (
-                      <p className="text-slate-300">{record.note}</p>
+                      <>
+                        <p className="mt-1 text-xs text-slate-400">
+                          备注（{getNoteCharacterCount(record.note)} 字，不含空格）
+                        </p>
+                        <p className="text-slate-300">{record.note}</p>
+                      </>
                     ) : null}
                   </div>
                   <button

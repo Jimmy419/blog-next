@@ -68,46 +68,44 @@ export default async function GoalsPage({
                 Math.floor((goal.currentValue / goal.targetValue) * 100)
               );
               return (
-                <article
+                <Link
                   key={goal.id}
-                  className="rounded-xl border border-slate-800 bg-slate-900 p-4 shadow-sm"
+                  href={`/personal/goals/${goal.id}`}
+                  className="block rounded-xl border border-slate-800 bg-slate-900 p-4 shadow-sm transition hover:border-blue-500/60 hover:bg-slate-900/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <h2 className="text-lg font-semibold">{goal.title}</h2>
-                    <span
-                      className={`rounded px-2 py-1 text-xs ${
-                        goal.status === "COMPLETED"
-                          ? "bg-emerald-500/20 text-emerald-300"
-                          : "bg-yellow-500/20 text-yellow-200"
-                      }`}
-                    >
-                      {goal.status === "COMPLETED" ? "已完成" : "进行中"}
-                    </span>
-                  </div>
+                  <article>
+                    <div className="flex items-start justify-between gap-3">
+                      <h2 className="text-lg font-semibold">{goal.title}</h2>
+                      <span
+                        className={`rounded px-2 py-1 text-xs ${
+                          goal.status === "COMPLETED"
+                            ? "bg-emerald-500/20 text-emerald-300"
+                            : "bg-yellow-500/20 text-yellow-200"
+                        }`}
+                      >
+                        {goal.status === "COMPLETED" ? "已完成" : "进行中"}
+                      </span>
+                    </div>
 
-                  <p className="mt-2 text-sm text-slate-300">
-                    进度：{goal.currentValue} / {goal.targetValue}（{progress}%）
-                  </p>
-                  <div className="mt-2 h-2 rounded bg-slate-800">
-                    <div
-                      className="h-2 rounded bg-emerald-500"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
+                    <p className="mt-2 text-sm text-slate-300">
+                      进度：{goal.currentValue} / {goal.targetValue}（{progress}%）
+                    </p>
+                    <div className="mt-2 h-2 rounded bg-slate-800">
+                      <div
+                        className="h-2 rounded bg-emerald-500"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
 
-                  {goal.rewardText ? (
-                    <p className="mt-3 text-sm text-slate-300">奖励：{goal.rewardText}</p>
-                  ) : null}
+                    {goal.rewardText ? (
+                      <p className="mt-3 text-sm text-slate-300">奖励：{goal.rewardText}</p>
+                    ) : null}
 
-                  <div className="mt-4">
-                    <Link
-                      href={`/personal/goals/${goal.id}`}
-                      className="text-sm font-medium text-blue-400"
-                    >
-                      查看详情并记录进度
-                    </Link>
-                  </div>
-                </article>
+                    <p className="mt-4 text-sm font-medium text-blue-400">
+                      点击查看详情并记录进度
+                    </p>
+                  </article>
+                </Link>
               );
             })
           )}
