@@ -4,6 +4,7 @@ import {
   addGoalRecord,
   deleteGoal,
   deleteGoalRecord,
+  updateGoalRecord,
   updateGoal,
 } from "@/actions/goal.action";
 import BackButton from "@/components/common/BackButton";
@@ -37,12 +38,17 @@ interface GoalDetailManagerProps {
 }
 
 const getNoteCharacterCount = (note: string) => note.replace(/\s/g, "").length;
+const toDateValue = (value: string | Date) => new Date(value);
 
 export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [editingRecordId, setEditingRecordId] = useState<number | null>(null);
+  const [editRecordValue, setEditRecordValue] = useState(1);
+  const [editRecordNote, setEditRecordNote] = useState("");
+  const [editRecordDateTime, setEditRecordDateTime] = useState<Date | null>(null);
   const [recordNote, setRecordNote] = useState("");
   const [previewImageOpen, setPreviewImageOpen] = useState(false);
   const [editTitle, setEditTitle] = useState(goal.title);
@@ -136,6 +142,53 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
         router.refresh();
       } catch (error) {
         setMessage(error instanceof Error ? error.message : "删除记录失败");
+      }
+    });
+  };
+
+  const handleStartEditRecord = (record: GoalRecord) => {
+    setEditingRecordId(record.id);
+    setEditRecordValue(record.value);
+    setEditRecordNote(record.note || "");
+    setEditRecordDateTime(toDateValue(record.recordDate));
+    setMessage("");
+  };
+
+  const handleCancelEditRecord = () => {
+    setEditingRecordId(null);
+    setEditRecordValue(1);
+    setEditRecordNote("");
+    setEditRecordDateTime(null);
+  };
+
+  const handleUpdateRecord = (
+    event: FormEvent<HTMLFormElement>,
+    recordId: number
+  ) => {
+    event.preventDefault();
+    const password = window.prompt("请输入登录密码以确认修改该条记录：");
+    if (password === null) return;
+    if (!password.trim()) {
+      setMessage("请输入密码后再修改记录");
+      return;
+    }
+    setMessage("");
+
+    startTransition(async () => {
+      try {
+        await updateGoalRecord({
+          goalId: goal.id,
+          recordId,
+          value: editRecordValue,
+          note: editRecordNote.trim() || undefined,
+          recordDate: editRecordDateTime || undefined,
+          password: password.trim(),
+        });
+        handleCancelEditRecord();
+        setMessage("记录更新成功");
+        router.refresh();
+      } catch (error) {
+        setMessage(error instanceof Error ? error.message : "更新记录失败");
       }
     });
   };
@@ -433,15 +486,85 @@ export default function GoalDetailManager({ goal }: GoalDetailManagerProps) {
                       </>
                     ) : null}
                   </div>
-                  <button
-                    type="button"
-                    className="rounded border border-red-400/60 bg-red-500/10 px-2 py-1 text-xs text-red-200"
-                    onClick={() => handleDeleteRecord(record.id)}
-                    disabled={pending}
-                  >
-                    删除
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      className="rounded border border-blue-400/60 bg-blue-500/10 px-2 py-1 text-xs text-blue-200"
+                      onClick={() => handleStartEditRecord(record)}
+                      disabled={pending}
+                    >
+                      编辑
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded border border-red-400/60 bg-red-500/10 px-2 py-1 text-xs text-red-200"
+                      onClick={() => handleDeleteRecord(record.id)}
+                      disabled={pending}
+                    >
+                      删除
+                    </button>
+                  </div>
                 </div>
+                {editingRecordId === record.id ? (
+                  <form
+                    onSubmit={(event) => handleUpdateRecord(event, record.id)}
+                    className="mt-3 grid gap-2 rounded-lg border border-slate-700 bg-slate-900/70 p-3"
+                  >
+                    <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                      <input
+                        className="w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+                        type="number"
+                        min={-100}
+                        max={100}
+                        value={editRecordValue}
+                        onChange={(event) =>
+                          setEditRecordValue(Number(event.target.value || 0))
+                        }
+                        required
+                      />
+                      <ReactDatePicker
+                        selected={editRecordDateTime}
+                        onChange={(value: Date | null) => setEditRecordDateTime(value)}
+                        showTimeSelect
+                        timeIntervals={1}
+                        dateFormat="yyyy/MM/dd HH:mm"
+                        className="goal-date-input h-12 w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                        calendarClassName="goal-date-calendar"
+                        popperClassName="goal-date-popper"
+                        placeholderText="选择记录时间"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        className="w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-sm text-slate-100 outline-none ring-blue-500 placeholder:text-slate-400 focus:ring-2"
+                        value={editRecordNote}
+                        onChange={(event) => setEditRecordNote(event.target.value)}
+                        maxLength={500}
+                        placeholder="备注（例如：今天主动吃完饭）"
+                      />
+                      <p className="mt-1 text-right text-xs text-slate-400">
+                        已输入 {getNoteCharacterCount(editRecordNote)} / 500 字（不含空格）
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-end gap-2">
+                      <button
+                        type="button"
+                        className="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200"
+                        onClick={handleCancelEditRecord}
+                        disabled={pending}
+                      >
+                        取消
+                      </button>
+                      <button
+                        type="submit"
+                        className="rounded bg-blue-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-500 disabled:opacity-60"
+                        disabled={pending}
+                      >
+                        保存修改
+                      </button>
+                    </div>
+                  </form>
+                ) : null}
               </li>
             ))
           )}

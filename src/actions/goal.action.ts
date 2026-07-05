@@ -242,6 +242,76 @@ export const deleteGoal = async (data: { goalId: number; password: string }) => 
   return { success: true };
 };
 
+export const updateGoalRecord = async (data: {
+  goalId: number;
+  recordId: number;
+  value: number;
+  note?: string;
+  recordDate?: Date;
+  password: string;
+}) => {
+  const authorId = await requireAuth();
+  const parsed = z
+    .object({
+      goalId: z.number().int().positive(),
+      recordId: z.number().int().positive(),
+      value: z.number().int().min(-100).max(100),
+      note: z.string().trim().max(500).optional(),
+      recordDate: z.date().optional(),
+      password: z.string().min(6, "请输入登录密码"),
+    })
+    .parse(data);
+
+  await verifyUserPassword(authorId, parsed.password);
+
+  const goal = await goalDb.goal.findUnique({
+    where: { id: parsed.goalId },
+  });
+  if (!goal || goal.authorId !== authorId) {
+    throw new Error("目标不存在或无权限");
+  }
+
+  const record = await goalDb.goalRecord.findUnique({
+    where: { id: parsed.recordId },
+  });
+  if (!record || record.goalId !== parsed.goalId) {
+    throw new Error("进度记录不存在或无权限");
+  }
+
+  const result = await prisma.$transaction(async (tx) => {
+    const txDb = tx as any;
+    const updatedRecord = await txDb.goalRecord.update({
+      where: { id: parsed.recordId },
+      data: {
+        value: parsed.value,
+        note: parsed.note || null,
+        recordDate: parsed.recordDate || record.recordDate,
+      },
+    });
+
+    const nextCurrentValue = Math.max(
+      0,
+      goal.currentValue - record.value + parsed.value
+    );
+    const nextStatus =
+      nextCurrentValue >= goal.targetValue ? "COMPLETED" : "IN_PROGRESS";
+
+    const updatedGoal = await txDb.goal.update({
+      where: { id: parsed.goalId },
+      data: {
+        currentValue: nextCurrentValue,
+        status: nextStatus,
+      },
+    });
+
+    return { updatedRecord, updatedGoal };
+  });
+
+  revalidatePath("/personal/goals");
+  revalidatePath(`/personal/goals/${parsed.goalId}`);
+  return { success: true, data: result };
+};
+
 export const deleteGoalRecord = async (data: {
   goalId: number;
   recordId: number;
