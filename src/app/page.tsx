@@ -39,6 +39,12 @@ export default function Home() {
               >
                 注册新账号
               </Link>
+              <Link
+                href="/jtool/stocks"
+                className="rounded-full border border-emerald-400/40 bg-emerald-500/10 px-5 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
+              >
+                查看股票行情
+              </Link>
             </div>
 
             <div className="grid grid-cols-3 gap-2 pt-2">
@@ -112,6 +118,28 @@ export default function Home() {
               <p className="mt-2 text-sm leading-6 text-slate-300">{item.desc}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-6">
+        <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-r from-slate-900 to-emerald-950/30 p-6 md:p-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-emerald-300">新增工具</p>
+              <h2 className="mt-2 text-2xl font-bold">A 股股票行情看板</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                已接入轻量版股票行情功能，支持查看上证指数、深证成指、创业板指，以及自选股的最新价、涨跌幅和成交额。
+              </p>
+            </div>
+            <div className="flex shrink-0">
+              <Link
+                href="/jtool/stocks"
+                className="inline-flex rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
+              >
+                打开股票行情
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

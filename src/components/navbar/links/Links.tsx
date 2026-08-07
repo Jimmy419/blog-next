@@ -16,6 +16,7 @@ const Links: FC<LinksProps> = ({ session }) => {
     session?.user?.name || session?.user?.email || `用户#${session?.user?.id || ""}`;
   // 业务聚焦：暂时仅保留目标相关入口，其余导航先收起
   // const archivedLinks = ["/", "/about", "/contact", "/blog", "/jtool", "/robot", "/personal/me"];
+  const utilityLinks = [{ title: "股票行情", path: "/jtool/stocks" }];
   const goalLinks = [
     { title: "目标列表", path: "/personal/goals" },
     { title: "创建目标", path: "/personal/goals/new" },
@@ -28,6 +29,19 @@ const Links: FC<LinksProps> = ({ session }) => {
         {isAuthed ? (
           <>
             <span className="px-3 text-sm text-slate-300">{displayName}</span>
+            {utilityLinks.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                  pathname === item.path
+                    ? "bg-emerald-500 text-black"
+                    : "text-slate-200 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {item.title}
+              </Link>
+            ))}
             {goalLinks.map((item) => (
               <Link
                 key={item.path}
@@ -136,6 +150,20 @@ const Links: FC<LinksProps> = ({ session }) => {
             </div>
 
             <nav className="grid grid-cols-2 gap-2">
+              {utilityLinks.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-xl border px-3 py-2 text-center text-sm font-medium ${
+                    pathname === item.path
+                      ? "border-emerald-400 bg-emerald-500 text-black"
+                      : "border-slate-700 bg-slate-900 text-slate-100"
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              ))}
               {goalLinks.map((item) => (
                 <Link
                   key={item.path}
