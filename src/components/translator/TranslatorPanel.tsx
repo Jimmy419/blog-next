@@ -48,6 +48,14 @@ const TranslatorPanel = () => {
     useState(false);
   const [autoSpeak, setAutoSpeak] = useState(true);
 
+  const isIosDevice = useCallback(() => {
+    if (typeof navigator === "undefined") {
+      return false;
+    }
+
+    return /iPad|iPhone|iPod/.test(navigator.userAgent);
+  }, []);
+
   const speakTranslation = useCallback((text: string) => {
     if (
       typeof window === "undefined" ||
@@ -144,6 +152,11 @@ const TranslatorPanel = () => {
       browserWindow.webkitSpeechRecognition;
 
     if (!SpeechRecognitionConstructor) {
+      if (isIosDevice()) {
+        setError(
+          "当前 iPhone 浏览器没有可用的网页语音识别能力，请先使用手动输入，或改成服务端语音转文字方案。"
+        );
+      }
       return;
     }
 
@@ -219,10 +232,17 @@ const TranslatorPanel = () => {
         window.speechSynthesis.cancel();
       }
     };
-  }, [translateText]);
+  }, [isIosDevice, translateText]);
 
   const handleVoiceInput = () => {
     setError("");
+
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setError(
+        "当前页面不是安全上下文。iPhone 上语音识别通常需要 HTTPS；如果你是用手机访问电脑本地地址，请改成 HTTPS 域名或隧道地址。"
+      );
+      return;
+    }
 
     if (!recognitionRef.current) {
       setError("当前浏览器暂不支持语音识别，请使用手动输入。");
@@ -234,7 +254,30 @@ const TranslatorPanel = () => {
       return;
     }
 
-    recognitionRef.current.start();
+    try {
+      recognitionRef.current.start();
+    } catch (startError) {
+      const message =
+        startError instanceof DOMException
+          ? startError.name
+          : startError instanceof Error
+            ? startError.message
+            : "";
+
+      if (/notallowed/i.test(message)) {
+        setError(
+          "语音识别启动失败。请确认 Safari 麦克风权限已开启，且不是从 iPhone 主屏幕以独立模式打开页面。"
+        );
+        return;
+      }
+
+      if (/invalidstate/i.test(message)) {
+        setError("语音识别正在启动中，请稍等一下再试。");
+        return;
+      }
+
+      setError("语音识别启动失败，请稍后再试。");
+    }
   };
 
   const handleClear = () => {
