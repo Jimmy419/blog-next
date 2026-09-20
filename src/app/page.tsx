@@ -26,6 +26,12 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3 pt-1">
               <Link
+                href="/personal/translator"
+                className="rounded-full border border-emerald-500 px-5 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/10"
+              >
+                体验翻译助手
+              </Link>
+              <Link
                 href="/login"
                 prefetch={false}
                 className="rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"

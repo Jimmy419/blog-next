@@ -19,6 +19,7 @@ const Links: FC<LinksProps> = ({ session }) => {
   const goalLinks = [
     { title: "目标列表", path: "/personal/goals" },
     { title: "创建目标", path: "/personal/goals/new" },
+    { title: "翻译助手", path: "/personal/translator" },
   ];
   const [open, setOpen] = useState(false);
 
