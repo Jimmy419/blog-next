@@ -7,7 +7,7 @@ const Navbar = async () => {
   const session = await auth();
 
   return (
-    <div className="sticky top-0 z-30 border-b border-slate-700 bg-slate-950 px-4 py-3">
+    <div className="site-navbar sticky top-0 z-30 border-b border-slate-700 bg-slate-950 px-4 py-3">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
         <Link href="/" className="shrink-0" aria-label="返回首页">
           <Image

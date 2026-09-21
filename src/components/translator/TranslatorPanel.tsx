@@ -299,7 +299,7 @@ const TranslatorPanel = () => {
   };
 
   return (
-    <section className="min-h-[calc(100vh-68px)] bg-slate-950 px-4 py-8 text-slate-100">
+    <section className="min-h-[calc(100vh-68px)] bg-slate-950 px-4 pb-24 pt-8 text-slate-100 md:pb-12">
       <div className="mx-auto max-w-5xl">
         <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/40 p-6 shadow-2xl md:p-8">
           <div className="max-w-3xl space-y-4">

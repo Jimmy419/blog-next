@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-950 text-slate-100`}>
         <Providers>
           <ThemeProvider attribute="class">
-            <div className="flex min-h-screen bg-slate-950 flex-col">
+            <div className="site-shell flex min-h-[100dvh] flex-col bg-slate-950">
               <Navbar />
               <div className="flex-1">{children}</div>
               <Footer />
