@@ -47,6 +47,7 @@ const TranslatorPanel = () => {
   const [speechSynthesisSupported, setSpeechSynthesisSupported] =
     useState(false);
   const [autoSpeak, setAutoSpeak] = useState(true);
+  const [autoSpeakMuted, setAutoSpeakMuted] = useState(false);
 
   const isIosDevice = useCallback(() => {
     if (typeof navigator === "undefined") {
@@ -115,7 +116,7 @@ const TranslatorPanel = () => {
         setRecognizedText(normalizedValue);
         setTranslatedText(englishText);
 
-        if (autoSpeak && speechSynthesisSupported) {
+        if (autoSpeak && !autoSpeakMuted && speechSynthesisSupported) {
           speakTranslation(englishText);
         }
       } catch (translationError) {
@@ -129,7 +130,7 @@ const TranslatorPanel = () => {
         setIsTranslating(false);
       }
     },
-    [autoSpeak, speakTranslation, speechSynthesisSupported]
+    [autoSpeak, autoSpeakMuted, speakTranslation, speechSynthesisSupported]
   );
 
   useEffect(() => {
@@ -298,6 +299,20 @@ const TranslatorPanel = () => {
     setIsListening(false);
   };
 
+  const handleToggleAutoSpeakMute = () => {
+    const nextMuted = !autoSpeakMuted;
+
+    setAutoSpeakMuted(nextMuted);
+
+    if (
+      nextMuted &&
+      typeof window !== "undefined" &&
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+  };
+
   return (
     <section className="min-h-[calc(100vh-68px)] bg-slate-950 px-4 pb-24 pt-8 text-slate-100 md:pb-12">
       <div className="mx-auto max-w-5xl">
@@ -341,6 +356,17 @@ const TranslatorPanel = () => {
                 >
                   清空
                 </button>
+                <button
+                  type="button"
+                  onClick={handleToggleAutoSpeakMute}
+                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                    autoSpeakMuted
+                      ? "border border-yellow-400/50 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/15"
+                      : "border border-emerald-400/40 text-emerald-300 hover:bg-emerald-400/10"
+                  }`}
+                >
+                  {autoSpeakMuted ? "恢复自动播放" : "禁止自动播放"}
+                </button>
               </div>
 
               <label className="flex items-center gap-3 text-sm text-slate-300">
@@ -351,6 +377,7 @@ const TranslatorPanel = () => {
                   className="h-4 w-4 rounded border-slate-600 bg-slate-900"
                 />
                 翻译完成后自动语音播放英文
+                {autoSpeakMuted ? "（当前已被按钮临时禁止）" : ""}
               </label>
 
               <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
